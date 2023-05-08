@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
+import { DataTableDirective } from 'angular-datatables/src/angular-datatables.directive';
 
 import { MoneyGoalComponent } from './components/money-goal/money-goal.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ApuestaComponent } from './components/apuesta/apuesta.component';
 import { QuinielaComponent } from './components/quiniela/quiniela.component';
 import { EquipoComponent } from './components/equipo/equipo.component';
+import { RolComponent } from './components/rol/rol.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import { EquipoComponent } from './components/equipo/equipo.component';
     ApuestaComponent,
     InicioComponent,
     QuinielaComponent,
-    EquipoComponent
+    EquipoComponent,
+    RolComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,8 @@ import { EquipoComponent } from './components/equipo/equipo.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DragDropModule
+    DragDropModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

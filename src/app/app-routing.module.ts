@@ -5,6 +5,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { ApuestaComponent } from './components/apuesta/apuesta.component';
 import { QuinielaComponent } from './components/quiniela/quiniela.component';
 import { EquipoComponent } from './components/equipo/equipo.component';
+import { RolComponent } from './components/rol/rol.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/MoneyGoal', pathMatch: 'full'},
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path: '', component: InicioComponent, children: [
     {path: 'Apuesta', component: ApuestaComponent},
     {path: 'Quiniela', component: QuinielaComponent},
-    {path: 'Equipo', component: EquipoComponent}
+    {path: 'Equipo', component: EquipoComponent},
+    {path: 'Rol', component: RolComponent},
+    {path: 'Usuario', component: UsuarioComponent}
   ]}
 ];
 

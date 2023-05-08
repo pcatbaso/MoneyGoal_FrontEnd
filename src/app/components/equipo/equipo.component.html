@@ -6,16 +6,16 @@
 </div>
 <div class="row">
   <div class="table-responsive">
-    <table class="table table-bordered">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
       <thead>
-          <tr>
-              <th>#</th>
-              <th>Nombre <i class="fa fa-sort"></i></th>
-              <th>Fecha creación</th>
-              <th>Fecha actualización <i class="fa fa-sort"></i></th>
-              <th>Activo</th>
-              <th>Acciones</th>
-          </tr>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Fecha creación</th>
+            <th>Fecha actualización</th>
+            <th>Activo</th>
+            <th>Acciones</th>
+        </tr>
       </thead>
       <tbody>
           <tr *ngFor="let item of listaEquipos; index as i">
