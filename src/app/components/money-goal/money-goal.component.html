@@ -1,0 +1,932 @@
+<!-- <ngx-toast-notifier></ngx-toast-notifier> -->
+<head>
+  <link href="/assets/css/main.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="50x50" href="/assets/img/icon-ball.webp">
+</head>
+<body class="bg-color">
+  <!-- preloader section -->
+  <div class="page-loader">
+    <div class="spinner"></div>
+  </div>
+  <!-- page wrapper section -->
+  <div id="wrapper"></div>
+  <!-- Header Part -->
+  <header class="navbar navbar-expand-lg py-lg-0 py-2 px-0 theme-box-shadow header">
+    <nav class="container">
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/img/new_logo.png" height="200" width="300" class="img-fluid" alt="Brand Logo" title="Brand Logo">
+      </a>
+      <div class="btn-wrapper">
+        <button class="navbar-toggler theme-bg-secondary border-0 menu-toggle" type="button" data-label="Menu"
+          data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bars"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link nav-effect" aria-current="page" href="#home">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-effect " href="#howtoplay">Como jugar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-effect" href="#NivelesPremiacion">Niveles de premiación</a>
+          </li>
+          <li class="nav-item nav-effect">
+            <a class="nav-link" href="#comprar">Comprar</a>
+          </li>
+          <!-- <li class="nav-item nav-effect">
+            <a class="nav-link" href="#review">Review</a>
+          </li>
+          <li class="nav-item nav-effect">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li> -->
+        </ul>
+        <!-- <div class="d-flex ms-2 justify-content-center">
+          <button onclick="window.location.href='#register';"
+            class="rounded-pill btn custom-btn-primary primary-btn-effect" type="submit">Get Started</button>
+        </div> -->
+      </div>
+    </nav>
+  </header>
+  <!-- Body Part - hero section -->
+  <section class="hero" id="home">
+    <div class="bg">
+      <div class="container">
+        <div class="row">
+          <div class="shape-wrap">
+            <img src="../../assets/images/icons/bitcoin-icon.svg" class="obj-1" alt="Background Shape Dollor">
+            <img src="../../assets/images/icons/dollor-icon.svg" class="obj-2" alt="Background Shape Bitcoin">
+          </div>
+          <div class="col-12 text-center position-relative" data-aos="fade-up">
+            <p class="mt-5 mb-3 theme-text-secondary fs-4 fw-bold">Participa en el concurso deportivo MoneyGoal</p>
+            <h1 class="display-4 mb-3 theme-text-white font-black max">MoneyGoal
+            </h1>
+            <!-- <p class="mb-0 theme-text-white">Discuss your goals determines success metrics identity solution</p> -->
+            <div class="group mt-5">
+              <!--<button class="rounded-pill btn custom-btn-primary font-small primary-btn-effect px-5 fs-4 mb-2"
+                type="submit" onclick="window.location.href='#';"> Ingresar <i class="bi bi-person-fill-check ms-3"></i></button>-->
+                <button onclick="window.location.href='#ingresar';" (click)="btnRegistroIngreso('ingresar')" class="rounded-pill btn custom-btn-primary font-small primary-btn-effect px-5 fs-4 mb-2"
+                type="submit"> Ingresar <i class="bi bi-person-fill-check ms-3"></i></button>
+                <button onclick="window.location.href='#registrarse';" (click)="btnRegistroIngreso('registrarse')" class="rounded-pill btn custom-btn-primary font-small primary-btn-effect px-5 fs-4 mb-2"
+                type="submit"> Registrarse <i class="bi bi-person-fill-check ms-3"></i></button>
+            </div>
+            <figure class="mb-0 hero-image">
+              <img src="../../assets/images/hero/hero-pic.png" class="img-fluid " alt="hero image">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- best experience section -->
+  <section class="features py-5" id="experience">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-12 mt-0 mt-lg-5 mb-5 mb-lg-0 text-center">
+          <!-- <p class="mt-5 mb-3 theme-text-secondary fs-4 fw-bold" data-aos="fade-up">Trusted by 1 millions players</p> -->
+          <!-- <h2 class="display-5 mb-3 font-black" data-aos="fade-up">Best-In-Class Gaming Experience</h2> -->
+          <h4><p class="mb-0" data-aos="fade-up">El concurso consiste en tratar de acertar a los resultados de los partidos enlistados en una quiniela para obtener alguno de los tres premios
+            que se ofrecerán (1º, 2º y 3er lugar).<br>La quiniela incluirá 10 partidos de futbol tanto de la liga MX y como la de la MLS.
+          </p></h4>
+        </div>
+      </div>
+      <div class="row mt-0 mt-lg-5" id="counter">
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-3 mb-3 mb-lg-0" data-aos="fade-up">
+          <div class="list align-items-center">
+            <figure class="mb-0 image-icon">
+              <img src="../../assets/images/icons/experience-icon01.png" alt="Gaming Experience">
+            </figure>
+            <div class="con">
+              <span class="fs-1 font-black mb-2 counter-value" data-count="1600">0</span><span
+                class="fs-1 font-black ms-1">+</span>
+              <p class="mb-0 theme-text-secondary fw-bold">Usuarios activos</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-3 mb-3 mb-lg-0" data-aos="fade-up">
+          <div class="list align-items-center">
+            <figure class="mb-0 image-icon">
+              <img src="../../assets/images/icons/experience-icon02.png" alt="Gaming Experience">
+            </figure>
+            <div class="con">
+              <span class="fs-1 font-black mb-2 counter-value" data-count="1000">0</span><span
+                class="fs-1 font-black ms-1">+</span>
+              <p class="mb-0 theme-text-secondary fw-bold">Premios en total</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-3 mb-3 mb-lg-0" data-aos="fade-up">
+          <div class="list align-items-center">
+            <figure class="mb-0 image-icon">
+              <img src="../../assets/images/icons/experience-icon03.png" alt="Gaming Experience">
+            </figure>
+            <div class="con">
+              <span class="fs-1 font-black mb-2 counter-value" data-count="100">0</span><span
+                class="fs-1 font-black ms-1">+</span>
+              <p class="mb-0 theme-text-secondary fw-bold">Concursos diarios</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-6 col-xl-3 mb-3 mb-lg-0" data-aos="fade-up">
+          <div class="list align-items-center">
+            <figure class="mb-0 image-icon">
+              <img src="../../assets/images/icons/experience-icon04.png" alt="Gaming Experience">
+            </figure>
+            <div class="con">
+              <span class="fs-1 font-black mb-2 counter-value" data-count="2500">0</span><span
+                class="fs-1 font-black ms-1">+</span>
+              <p class="mb-0 theme-text-secondary fw-bold">Ganadores afortunados</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- how to play experience section -->
+  <section class="howtoplay py-5" id="howtoplay">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-12 text-center">
+          <p class="mt-0 mt-lg-5 mb-3 theme-text-secondary fs-4 fw-bold" data-aos="fade-up">Solo 4 sencillos pasos</p>
+          <h2 class="display-5 mb-3 font-black" data-aos="fade-up">¿Comó jugar?</h2>
+          <!-- <p class="mb-0" data-aos="fade-up">Join millions of players worldwide Make multiple combinations</p> -->
+        </div>
+      </div>
+      <div class="row">
+        <ul  class="mb-0" data-aos="fade-up">
+          <li>
+            <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+            Los participantes acceden a la página web y se registran como participantes,
+            proporcionando su nombre completo y un número de tarjeta de crédito o débito.
+          </li>
+          <br>
+          <li>
+            <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+            Una vez registrados, los participantes podrán comprar saldo para participar en los
+            concursos semanales.
+          </li>
+          <br>
+          <li>
+            <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+            La quiniela MoneyGoal incluirá un listado con 10 partidos y tres columnas con
+            casilleros en donde los participantes podrán hacer sus predicciones, eligiendo en los
+            casilleros correspondientes si el equipo local ganará, habrá un empate, o si ganará el
+            equipo local.
+          </li>
+          <br>
+          <li>
+            <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+            Los jugadores también podrán elegir entre jugar un resultado sencillo,
+            doble o triple, para incrementar sus oportunidades de ganar.
+          </li>
+          <br>
+        </ul>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up">
+          <div class="text-center theme-box-shadow theme-border-radius step-card">
+            <figure class="mb-0 image-icon">
+              <img src="../../assets/img/quiniela_sencilla.png" alt="quiniela sencilla">
+            </figure>
+            <p class="pt-4 pb-2 mb-0 theme-text-secondary fs-5 fw-bold">Quiniela sencilla</p>
+            <p class="mb-0">El participante solamente puede marcar una opción de resultado
+              por partido.</p>
+            <!-- <div class="step-corner">
+              <div class="step-arrow fw-bold">01</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up">
+          <div class="text-center theme-box-shadow theme-border-radius step-card">
+            <figure class="mb-0 image-icon">
+              <img src="../../assets/img/quiniela_doble.png" alt="quiniela doble">
+            </figure>
+            <p class="pt-4 pb-2 mb-0 theme-text-secondary fs-5 fw-bold">Quiniela doble</p>
+            <p class="mb-0">El participante podrá marcar dos resultados en el mismo partido
+              (por ejemplo, podrá seleccionar local y empate en un partido), con un máximo de
+              hasta 4 dobles.</p>
+            <!-- <div class="step-corner">
+              <div class="step-arrow fw-bold">02</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up">
+          <div class="text-center theme-box-shadow theme-border-radius step-card">
+            <figure class="mb-0 image-icon">
+              <img src="../../assets/img/quiniela_triple.png" alt="quiniela triple">
+            </figure>
+            <p class="pt-4 pb-2 mb-0 theme-text-secondary fs-5 fw-bold">Quiniela triple</p>
+            <p class="mb-0">El participante podrá marcar las tres opciones de resultado, con un
+              máximo de dos triples.
+              </p>
+            <!-- <div class="step-corner">
+              <div class="step-arrow fw-bold">03</div>
+            </div> -->
+          </div>
+        </div>
+        <!-- <div class="col-12 mt-5 text-center" data-aos="fade-up">
+          <button class="rounded-pill btn custom-btn-primary font-small primary-btn-effect" type="submit">Get start
+            now</button>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- tournaments section -->
+  <section class="tournaments py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <!-- <p class="mt-5 mb-3 theme-text-secondary fs-4 fw-bold" data-aos="fade-up">Trusted Online Sports Batting</p> -->
+          <h2 class="display-5 mb-3 font-black max" data-aos="fade-up">Participa en el concurso deportivo </h2>
+          <!-- <p class="mb-0 " data-aos="fade-up">Explore multiple options for maximum fun Use the power of mind Bets Fast,
+            Anonymous, Secured,
+            Automatic, Trustworthy</p> -->
+        </div>
+      </div>
+      <div class="row mt-5">
+        <!-- tournament card -->
+        <div class="col-12 col-lg-6" data-aos="fade-up">
+          <div class="tournament-card theme-border-radius theme-border mb-4 theme-bg-white">
+            <div class="head-sec py-3 px-3 pb-0">
+              <!-- <span
+                class="d-inline-flex theme-bg-accent-three rounded-pill px-4 py-2 tag theme-text-primary">International
+                T20 Series -
+                20th
+                Match</span> -->
+              <!-- <button class="rounded-pill btn custom-link font-extra-small" type="button">Join</button> -->
+            </div>
+            <div class="body-sec py-3 px-3">
+              <div class="d-flex align-self-center align-items-center">
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/pumas_logo.png" class="img-fluid" alt="Games team" height="70" width="70">
+                </figure>
+                <div class="ms-3">
+                 <h3 class="theme-text-primary fs-6 fw-bold mb-2">Pumas</h3>
+                   <!-- <span class="fs-5 fw-bold theme-text-secondary"></span> -->
+                </div>
+              </div>
+              <div class="vs">VS</div>
+              <div class="d-flex align-self-center align-items-center text-end">
+                <div class="me-3">
+                   <h3 class="theme-text-primary fs-6 fw-bold mb-2">Necaxa</h3>
+                  <!--<span class="fs-5 fw-bold theme-text-secondary"></span> -->
+                </div>
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/necaxa_logo.svg" class="img-fluid" alt="Games team" height="70" width="70">
+                </figure>
+              </div>
+            </div>
+            <div class="foot py-2 px-3">
+              <span class="d-inline-flex small theme-text-accent-two">22nd Match, April 15, 2023</span>
+              <div class="text-center the-final-countdown">
+                <p class="mb-0 theme-text-primary fw-bold">Start at <span class="timer"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- tournament card -->
+        <div class="col-12 col-lg-6" data-aos="fade-up">
+          <div class="tournament-card theme-border-radius theme-border mb-4 theme-bg-white">
+            <div class="head-sec py-3 px-3 pb-0">
+              <!-- <span class="d-inline-flex theme-bg-accent-three rounded-pill px-4 py-2 tag theme-text-primary">National
+                T20 Series -
+                22th
+                Match</span>
+              <button class="rounded-pill btn custom-link font-extra-small" type="button">Join</button> -->
+            </div>
+            <div class="body-sec py-3 px-3">
+              <div class="d-flex align-self-center align-items-center">
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/atlas_logo.png" class="img-fluid" alt="Games team" height="70" width="70">
+                </figure>
+                <div class="ms-3">
+                  <h3 class="theme-text-primary fs-6 fw-bold mb-2">Atlas</h3>
+                  <!-- <span class="fs-5 fw-bold theme-text-secondary">ATS</span> -->
+                </div>
+              </div>
+              <div class="vs">VS</div>
+              <div class="d-flex align-self-center align-items-center text-end">
+                <div class="me-3">
+                  <h3 class="theme-text-primary fs-6 fw-bold mb-2">Querétaro</h3>
+                  <!-- <span class="fs-5 fw-bold theme-text-secondary">DKD</span> -->
+                </div>
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/queretaro_logo.png" class="img-fluid" alt="Games team" height="60" width="60">
+                </figure>
+              </div>
+            </div>
+            <div class="foot py-2 px-3">
+              <span class="d-inline-flex small theme-text-accent-two">23nd Match, April 16, 2023</span>
+              <div class="text-center the-final-countdown">
+                <p class="mb-0 theme-text-primary fw-bold">Start at <span class="timer"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- tournament card -->
+        <div class="col-12 col-lg-6" data-aos="fade-up">
+          <div class="tournament-card theme-border-radius theme-border mb-4 theme-bg-white">
+            <div class="head-sec py-3 px-3 pb-0">
+              <!-- <span
+                class="d-inline-flex theme-bg-accent-three rounded-pill px-4 py-2 tag theme-text-primary">International
+                T20 Series -
+                20th
+                Match</span>
+              <button class="rounded-pill btn custom-link font-extra-small" type="button">Join</button> -->
+            </div>
+            <div class="body-sec py-3 px-3">
+              <div class="d-flex align-self-center align-items-center">
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/pachuca_logo.png" class="img-fluid" alt="Games team" height="58" width="58">
+                </figure>
+                <div class="ms-3">
+                  <h3 class="theme-text-primary fs-6 fw-bold mb-2">Pachuca</h3>
+                  <!-- <span class="fs-5 fw-bold theme-text-secondary">DKD</span> -->
+                </div>
+              </div>
+              <div class="vs">VS</div>
+              <div class="d-flex align-self-center align-items-center text-end">
+                <div class="me-3">
+                  <h3 class="theme-text-primary fs-6 fw-bold mb-2">Cruz Azul</h3>
+                  <!-- <span class="fs-5 fw-bold theme-text-secondary">GRD</span> -->
+                </div>
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/cruzAzul_logo.png" class="img-fluid" alt="Games team" height="90" width="90">
+                </figure>
+              </div>
+            </div>
+            <div class="foot py-2 px-3">
+              <span class="d-inline-flex small theme-text-accent-two">24th Match, April 17, 2023</span>
+              <div class="text-center the-final-countdown">
+                <p class="mb-0 theme-text-primary fw-bold">Start at <span class="timer"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- tournament card -->
+        <div class="col-12 col-lg-6" data-aos="fade-up">
+          <div class="tournament-card theme-border-radius theme-border mb-4 theme-bg-white">
+            <div class="head-sec py-3 px-3 pb-0">
+              <!-- <span
+                class="d-inline-flex theme-bg-accent-three rounded-pill px-4 py-2 tag theme-text-primary">International
+                T20 Series -
+                25th
+                Match</span>
+              <button class="rounded-pill btn custom-link font-extra-small" type="button">Join</button> -->
+            </div>
+            <div class="body-sec py-3 px-3">
+              <div class="d-flex align-self-center align-items-center">
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/puebla_logo.png" class="img-fluid" alt="Games team" height="70" width="70">
+                </figure>
+                <div class="ms-3">
+                  <h3 class="theme-text-primary fs-6 fw-bold mb-2">Puebla</h3>
+                  <!-- <span class="fs-5 fw-bold theme-text-secondary">SCB</span> -->
+                </div>
+              </div>
+              <div class="vs">VS</div>
+              <div class="d-flex align-self-center align-items-center text-end">
+                <div class="me-3">
+                  <h3 class="theme-text-primary fs-6 fw-bold mb-2">Santos</h3>
+                  <!-- <span class="fs-5 fw-bold theme-text-secondary">SLC</span> -->
+                </div>
+                <figure class="mb-0 icon-bg">
+                  <img src="../../assets/images/team/santos_logo.png" class="img-fluid" alt="Games team" height="90" width="90">
+                </figure>
+              </div>
+            </div>
+            <div class="foot py-2 px-3">
+              <span class="d-inline-flex small theme-text-accent-two">25th Match, April 18, 2023</span>
+              <div class="text-center the-final-countdown">
+                <p class="mb-0 theme-text-primary fw-bold">Start at <span class="timer"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- tournament card -->
+
+        <!-- tournament card -->
+      </div>
+    </div>
+  </section>
+
+  <!-- contest section -->
+  <section class="contest py-5" id="NivelesPremiacion">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-12 text-center">
+          <div class="wrap" data-aos="fade-up">
+            <img src="../../assets/images/winner/winner-icon.png" class="img-fluid" alt="Champions team">
+            <div class="wrap-head">
+              <!-- <h4 class="mb-3 theme-text-secondary fs-4 fw-bold">Games Winnings</h4> -->
+              <h2 class="display-5 mb-3 font-black">Niveles de premiación</h2>
+            </div>
+          </div>
+          <div class="row" >
+            <p class="mb-0" data-aos="fade-up">La quiniela MoneyGoal se jugará semanalmente, y los concursntes deberán de registrar sus quinielas hasta una hora antes de que inicie el primero de los 10 partidos incluidos en la quiniela, todos los viernes.</p>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-12 col-md-4 col-lg-6">
+              <div class="box" data-aos="fade-up">
+                <img src="../../assets/images/winner/winner01.png" class="img-fluid" alt="ranking01">
+                <h6 class="fs-4 fw-bold mt-4 mb-3">Primer lugar</h6>
+                <div class="row">
+                  <ul  class="mb-0" data-aos="fade-up">
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      El participante debe acertar todos los resultados de los partidos en listados en la quiniela.
+                    </li>
+                    <br>
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      Si hay más de un jugador que acierte todos los resultado de la quiniela, el premio se divirá equitativamente entre el número de ganadores.
+                    </li>
+                    <br>
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      Si no hay ganadores a primer lugar, el premio se acumulará para el siguiente concurso.
+                    </li>
+                    <br>
+                    <br>
+                  </ul>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="../../assets/images/winner/money.png" class="img-fluid" alt="Money">
+                  <p class="fs-5 fw-bold mb-0 theme-text-secondary"><i class="bi bi-currency-dollar"></i> 20,500.00</p>
+                </div>
+              </div>
+            </div>
+            <!-- repetable -->
+            <div class="col-12 col-md-4 col-lg-6">
+              <div class="box" data-aos="fade-up">
+                <img src="../../assets/images/winner/winner02.png" class="img-fluid" alt="ranking01">
+                <h6 class="fs-4 fw-bold mt-4 mb-3">Segundo lugar</h6>
+                <div class="row">
+                  <ul  class="mb-0" data-aos="fade-up">
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      El participante debe acertar 9 de los resultados de los partidos listados en la quiniela.
+                    </li>
+                    <br>
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      Si hay más de un jugador que acierte 9 los resultado de la quiniela, el premio se divirá equitativamente entre el número de ganadores.
+                    </li>
+                    <br>
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      En caso de que nadie atine a 9 resultados, el premio a segundo lugar corresponderá a quien atine a 8, y así sucesivamente.
+                    </li>
+                    <br>
+                    <br>
+                  </ul>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="../../assets/images/winner/money.png" class="img-fluid" alt="Money">
+                  <p class="fs-5 fw-bold mb-0 theme-text-secondary"><i class="bi bi-currency-dollar"></i> 19,500.00</p>
+                </div>
+              </div>
+            </div>
+            <!-- repetable -->
+            <div class="col-12 col-md-4 col-lg-6 offset-lg-3">
+              <div class="box" data-aos="fade-up">
+                <img src="../../assets/images/winner/winner03.png" class="img-fluid" alt="ranking01">
+                <h6 class="fs-4 fw-bold mt-4 mb-3">Tercer lugar</h6>
+                <div class="row">
+                  <ul  class="mb-0" data-aos="fade-up">
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      El participante debe acertar 8 de los resultados de los partidos listados en la quiniela.
+                    </li>
+                    <br>
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      Si hay más de un jugador que acierte los 8 resultado de la quiniela, el premio se divirá equitativamente entre el número de ganadores.
+                    </li>
+                    <br>
+                    <li>
+                      <img src="../../assets/img/icon-ball.webp" width="20" height="20">
+                      En caso de que nadie atine a 8 resultados, el premio a tercer lugar corresponderá a quien atine a 7, y así sucesivamente.
+                    </li>
+                    <br>
+                    <br>
+                  </ul>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="../../assets/images/winner/money.png" class="img-fluid" alt="Money">
+                  <p class="fs-5 fw-bold mb-0 theme-text-secondary"><i class="bi bi-currency-dollar"></i> 18,500.00</p>
+                </div>
+              </div>
+            </div>
+            <!-- repetable -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- features section -->
+  <section class="features py-5 mt-lg-5" id="comprar">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8 text-center">
+          <!-- <p class="mt-5 mb-3 theme-text-secondary fs-4 fw-bold" data-aos="fade-up">Leading online gaming platform
+          </p> -->
+          <h2 class="display-5 mb-3 font-black max" data-aos="fade-up">Comprar</h2>
+          <p class="mb-0" data-aos="fade-up">El costo de la quiniela MoneyGoal sencilla será de 2 dólares.</p><br>
+          <figure class="mb-3 icon-bg">
+            <img src="../../assets/img/compra.png" class="img-fluid" alt="Plateform Features">
+          </figure>
+        </div>
+      </div>
+      <div class="row mt-5" data-aos="fade-up">
+        <div class="owl-carousel owl-theme" id="carouselfeatures">
+          <div class="item">
+            <div class="theme-border-radius theme-border mb-4 theme-transparent-bg py-5 text-center">
+              <figure class="mb-3 icon-bg">
+                <img src="../../assets/images/feature/features-icon01.png" class="img-fluid" alt="Plateform Features">
+              </figure>
+              <h3 class="fs-5 fw-bold theme-text-secondary">Multiple Contests</h3>
+              <p class="mb-0 px-3">Secure and super easy dummy
+                text less than seconds.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="theme-border-radius theme-border mb-4 theme-transparent-bg py-5 text-center">
+              <figure class="mb-3 icon-bg">
+                <img src="../../assets/images/feature/features-icon01.png" class="img-fluid" alt="Plateform Features">
+              </figure>
+              <h3 class="fs-5 fw-bold theme-text-secondary">Lowest Join Fee</h3>
+              <p class="mb-0 px-3">Secure and super easy dummy
+                text less than seconds.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="theme-border-radius theme-border mb-4 theme-transparent-bg py-5 text-center">
+              <figure class="mb-3 icon-bg">
+                <img src="../../assets/images/feature/features-icon02.png" class="img-fluid" alt="Plateform Features">
+              </figure>
+              <h3 class="fs-5 fw-bold theme-text-secondary">Safe & Secure</h3>
+              <p class="mb-0 px-3">Secure and super easy dummy
+                text less than seconds.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="theme-border-radius theme-border mb-4 theme-transparent-bg py-5 text-center">
+              <figure class="mb-3 icon-bg">
+                <img src="../../assets/images/feature/features-icon03.png" class="img-fluid" alt="Plateform Features">
+              </figure>
+              <h3 class="fs-5 fw-bold theme-text-secondary">Best Support</h3>
+              <p class="mb-0 px-3">Secure and super easy dummy
+                text less than seconds.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="theme-border-radius theme-border mb-4 theme-transparent-bg py-5 text-center">
+              <figure class="mb-3 icon-bg">
+                <img src="../../assets/images/feature/features-icon04.png" class="img-fluid" alt="Plateform Features">
+              </figure>
+              <h3 class="fs-5 fw-bold theme-text-secondary">Instant Withdrawals</h3>
+              <p class="mb-0 px-3">Secure and super easy dummy
+                text less than seconds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- about section
+  <section class="about py-5 mt-lg-5" id="about">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 text-center">
+          <div class="head-content">
+            <p class="mt-5 mb-3 theme-text-secondary fs-4 fw-bold" data-aos="fade-up">Online Betting Games</p>
+            <h1 class="display-5 mb-3 font-black" data-aos="fade-up">Bets on every game & reach at the top</h1>
+            <p class="mb-0" data-aos="fade-up">Fantasy games are all about creating your own team and making your
+              own
+              winning strategy.</p>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="list-content">
+            <div class="list" data-aos="fade-up">
+              <figure class="mb-0 image-icon">
+                <img src="../../assets/images/about/about-list-01.png" alt="image">
+              </figure>
+              <div class="con">
+                <h5 class="fs-4 fw-bold my-2">Lowest Credit Scores</h5>
+                <p class="mb-0 px-5">In our 11-Player game, you will find the lowest Credit Scores for all the players
+                </p>
+              </div>
+            </div>
+            <div class="list" data-aos="fade-up">
+              <figure class="mb-0 image-icon">
+                <img src="../../assets/images/about/about-list-02.png" alt="image">
+              </figure>
+              <div class="con">
+                <h5 class="fs-4 fw-bold my-2">100% Bonus and Free Entry</h5>
+                <p class="mb-0 px-5">Get 200% welcome bonus up to USD 100 on your First Deposit</p>
+              </div>
+            </div>
+            <div class="list" data-aos="fade-up">
+              <figure class="mb-0 image-icon">
+                <img src="../../assets/images/about/about-list-03.png" alt="image">
+              </figure>
+              <div class="con">
+                <h5 class="fs-4 fw-bold my-2">50% higher chances of winning</h5>
+                <p class="mb-0 px-5">Play Free Entry Contests and use 100% of your sign-up bonus to join contests</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <figure class="mb-0 frame">
+            <img src="../../assets/images/about/about-onthebett-pic.png" class="img-fluid" alt="About Us">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- subscribe section -->
+  <section class="subscribe py-5" id="ingresar" [style.display]="ingresar ? 'block' : 'none'">
+    <div class="container">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-12 col-lg-10">
+          <div
+            class="px-2 px-sm-5 py-5 text-center theme-box-shadow theme-border-radius theme-border theme-transparent-bg">
+            <!-- <p class="fw-bold mb-4" data-aos="fade-up">By clicking the download app link I hereby authorize to sent
+              notifications</p> -->
+            <h4 class="display-5 font-black mb-0" data-aos="fade-up">Ingresar</h4>
+            <div class="mt-3">
+              <form class="form" [formGroup]="loginForm" (ngSubmit)="iniciarSesion(loginForm.value)" (key.enter)="iniciarSesion(loginForm.value)">
+                <div class="row justify-content-center" data-aos="fade-up">
+                  <div class="col-12 col-lg-6">
+                    <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                      <button type="button" class="btn custom-btn-subscribe"><i
+                          class="bi bi-person-fill"></i></button>
+                      <input type="text" class="form-control" formControlName="email_usuario" placeholder="Ingrese su dirección de correo electrónico">
+                    </div>
+                    <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg">
+                      <button type="button" class="btn custom-btn-subscribe"><i
+                          class="bi bi-lock-fill"></i></button>
+                      <input type="password" class="form-control" formControlName="contrasenia_usuario" placeholder="Ingrese su contraseña">
+                      <button type="button" class="btn custom-btn-subscribe custom-pointer"><i
+                        class="bi bi-eye-fill"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5">
+                  <!-- <h5 class="display-5 font-black my-3" data-aos="fade-up">Watch demo</h5> -->
+                  <button class="rounded-pill btn custom-btn-primary font-small primary-btn-effect px-5 fs-4 mb-2"
+                    type="submit"> Ingresar </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="subscribe py-5" id="registrarse" [style.display]="registrar || registrarTarjeta || registrarTerminos ? 'block' : 'none'">
+    <div class="container">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-12 col-lg-10">
+          <div
+            class="px-2 px-sm-5 py-5 text-center theme-box-shadow theme-border-radius theme-border theme-transparent-bg">
+            <!-- <p class="fw-bold mb-4" data-aos="fade-up">By clicking the download app link I hereby authorize to sent
+              notifications</p> -->
+            <h4 class="display-5 font-black mb-0" data-aos="fade-up">Registrarse</h4>
+            <div class="mt-3">
+              <form class="form" [formGroup]="registerForm">
+                <div class="container" [style.display]="registrar ? 'block' : 'none'">
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill-check"></i></button>
+                        <input type="text" class="form-control" formControlName="nombre_usuario" placeholder="Ingrese su nombre" data-tooltip title="Ingrese su nombre" >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill-check"></i></button>
+                        <input type="text" class="form-control" formControlName="apellidoPaterno_usuario" placeholder="Ingrese su apellido paterno" data-tooltip title="Ingrese su apellido paterno">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill-check"></i></button>
+                        <input type="text" class="form-control" formControlName="apellidoMaterno_usuario" placeholder="Ingrese su apellido materno" data-tooltip title="Ingrese su apellido materno">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-vcard-fill"></i></button>
+                        <input type="text" class="form-control" formControlName="direccion_usuario" placeholder="Ingrese su dirección" data-tooltip title="Ingrese su dirección">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill"></i></button>
+                        <input type="text" class="form-control" formControlName="email_usuario" placeholder="Ingrese su correo electrónico" data-tooltip title="Ingrese su correo electrónico">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-telephone-plus-fill"></i></button>
+                        <input type="text" class="form-control" formControlName="telefono_usuario" placeholder="Ingrese un número telefónico" data-tooltip title="Ingrese un número telefónico">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill-lock"></i></button>
+                        <input type="text" class="form-control" formControlName="contrasenia_usuario" placeholder="Ingrese una contraseña" data-tooltip title="Ingrese una contraseña">
+                      </div>
+                    </div>
+                    <!-- <div class="col-12 col-md-12 col-lg-6">
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill"></i></button>
+                        <input type="text" class="form-control" formControlName="email_usuario" placeholder="Ingrese su dirección de correo electrónico">
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="mt-5" [style.display]="registrar ? 'block' : 'none'">
+                  <!-- <h5 class="display-5 font-black my-3" data-aos="fade-up">Watch demo</h5> -->
+                  <button class="rounded-pill btn custom-btn-primary font-small primary-btn-effect px-5 fs-4 mb-2"
+                    (click)="btnRegistroIngreso('continuarTarjeta')"> Continuar </button>
+                </div>
+                <div class="container" [style.display]="registrarTarjeta ? 'block' : 'none'">
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <label>Nombre completo de la tarjeta</label>
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill-check"></i></button>
+                        <input type="text" class="form-control" formControlName="cardName" placeholder="BBVA/HSBC/CITIBANAMEX" >
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <label>Número de la tarjeta</label>
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill-check"></i></button>
+                        <input type="text" class="form-control" formControlName="cardNumber" placeholder="•••• •••• •••• ••••">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <label>Fecha de caducidad</label>
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-fill-check"></i></button>
+                        <input type="number" class="form-control" formControlName="expiration" placeholder="MM/YY">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                      <label>CVV</label>
+                      <div class="d-flex p-2 rounded-pill theme-border theme-transparent-bg" style="margin-bottom: 3%;">
+                        <button type="button" class="btn custom-btn-subscribe"><i
+                            class="bi bi-person-vcard-fill"></i></button>
+                        <input type="text" class="form-control" formControlName="cvv" placeholder="•••">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5" [style.display]="registrarTarjeta ? 'block' : 'none'">
+                  <!-- <h5 class="display-5 font-black my-3" data-aos="fade-up">Watch demo</h5> -->
+                  <button class="rounded-pill btn custom-btn-primary font-small primary-btn-effect px-5 fs-4 mb-2"
+                    (click)="btnRegistroIngreso('continuarTerminos')"> Continuar </button>
+                </div>
+                <div class="container" [style.display]="registrarTerminos ? 'block' : 'none'">
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-1">
+                      <input type="checkbox" formControlName="termino1" [checked]="checkedTermino1" id="term1"/>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-11">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-1">
+                      <input type="checkbox" formControlName="termino2" [checked]="checkedTermino2" id="term2"/>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-11">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5" [style.display]="registrarTerminos ? 'block' : 'none'">
+                  <!-- <h5 class="display-5 font-black my-3" data-aos="fade-up">Watch demo</h5> -->
+                  <button class="rounded-pill btn custom-btn-primary font-small primary-btn-effect px-5 fs-4 mb-2"
+                    type="submit"  (click)="registroCompleto(registerForm.value)" (key.enter)="registroCompleto(registerForm.value)" > Registrarse </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer Part -->
+  <footer class="footer pt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
+          <img src="../../../assets/img/new_logo.png" class="img-fluid mt-5 mb-4 mb-lg-0" alt="Brand light">
+          <h3 class="h5 fw-bold mb-4 mt-0 mt-lg-5">About Us</h3>
+          <p class="mb-0 font-small">Bearing a simple yet catchy concept of earning money via the best fantasy game Apps
+            while watching your favourite sports</p>
+          <h3 class="mt-4 h5 fw-bold mb-4">Social Network</h3>
+          <div class="d-flex social mt-3">
+            <a href="javascript:void(0)" class="h2 pe-3"><i class="bi bi-facebook"></i></a>
+            <a href="javascript:void(0)" class="h2 px-3"><i class="bi bi-twitter"></i></a>
+            <a href="javascript:void(0)" class="h2 px-3"><i class="bi bi-linkedin"></i></a>
+            <a href="javascript:void(0)" class="h2 px-3"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5">
+          <div class="row">
+            <div class="col-12 col-md-6" data-aos="fade-up">
+              <div class="row">
+                <div class="col-12">
+                  <h3 class="h5 fw-bold mb-4 mt-5">Quick Links</h3>
+                  <ul class="link-list">
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Home</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">About Us</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Fantasy Cricket</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">How To Play</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Tips & Tricks</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Points System</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Testimonial</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6" data-aos="fade-up">
+              <div class="row">
+                <div class="col-12">
+                  <h3 class="h5 fw-bold mb-4 mt-5">Fantasy game</h3>
+                  <ul class="link-list">
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Fantasy cricket</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Fantasy football</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Fantasy basketball</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Fantasy baseball</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Rummy</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Card Game</a></li>
+                    <li><a href="javascript:void(0)" class="footer-link-effect">Call Break</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up">
+          <h3 class="h5 fw-bold mb-4 mt-5 mt-md-0 mt-lg-5">Useful Info</h3>
+          <ul class="link-list">
+            <li><a href="javascript:void(0)" class="footer-link-effect">Refund Policy</a></li>
+            <li><a href="javascript:void(0)" class="footer-link-effect">Terms & Conditions</a></li>
+            <li><a href="javascript:void(0)" class="footer-link-effect">Australia League</a></li>
+            <li><a href="javascript:void(0)" class="footer-link-effect">Legend League</a></li>
+            <li><a href="javascript:void(0)" class="footer-link-effect">FAQs</a></li>
+            <li><a href="javascript:void(0)" class="footer-link-effect">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="py-4 mt-5 text-center copyright">
+      <p class="mb-2 font-small">&copy; Copyright 2023 by <a href="javascript:void(0)">Onthebett</a>, All rights
+        reserved.</p>
+      <span class="font-extra-small">game involves an element of financial risk and may be addictive. Please play
+        responsibly and at your own risk</span>
+    </div>
+    <a href="#wrapper" data-type="section-switch" class="scrollup back-top"><i class="bi bi-chevron-double-up"></i></a>
+  </footer>
+</body>
+
+

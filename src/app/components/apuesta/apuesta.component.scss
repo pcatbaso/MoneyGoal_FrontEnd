@@ -1,0 +1,243 @@
+/*Tabla de la quiniela*/
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgb(5, 88, 5);
+  margin-left: auto;
+  margin-right: auto;
+}
+.styled-table thead tr {
+  background-color: rgb(5, 88, 5);
+  color: #ffffff;
+  text-align: left;
+
+}
+.styled-table th,
+.styled-table td {
+    padding: 3px 5px;
+}
+// .styled-table tbody tr {
+//   border-bottom: 1px solid #dddddd;
+// }
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(5, 88, 5);
+}
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: rgb(5, 88, 5);
+}
+
+/**/
+.check-local input[type=checkbox]{
+  display: none;
+}
+
+.check-local input[type=checkbox] + label {
+	display: block;
+	//background-image: url('../../../assets/quiniela/images/fotballN.svg');
+	background-repeat: no-repeat;
+	height: 30px;
+  width: 30px;
+}
+
+.check-local:hover input[type=checkbox] + label {
+	display: block;
+	cursor: pointer;
+}
+
+.check-local input[type=checkbox]:checked + label {
+	display: block;
+	//background-image: url('../../../assets/quiniela/images/fotballL.svg');
+	background-repeat: no-repeat;
+}
+
+/*Tabla de pago aarmado*/
+.styled-table-pagar {
+border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #980072;
+  margin-left: auto;
+  margin-right: auto;
+}
+.styled-table-pagar thead tr {
+  background-color: #980072;
+  color: #ffffff;
+  text-align: center;
+  border-width: thin;
+  border-style: solid;
+  border-color: #980072;
+}
+.styled-table-pagar th,
+.styled-table-pagar td {
+    padding: 3px 5px;
+}
+// .styled-table-pagar tbody tr {
+//   border-bottom: 1px solid #dddddd;
+// }
+
+.styled-table-pagar tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table-pagar tbody tr:last-of-type {
+  //border-color: #980072;
+  border-bottom: 1px solid #980072;
+}
+.styled-table-pagar tbody tr.active-row {
+  font-weight: bold;
+  color: rgb(5, 88, 5);
+}
+
+/*empate*/
+.check-empate input[type=checkbox]{
+  display: none;
+}
+
+.check-empate input[type=checkbox] + label {
+	display: block;
+	//background-image: url('../../../assets/quiniela/images/fotballN.svg');
+	background-repeat: no-repeat;
+	height: 30px;
+  width: 30px;
+}
+
+.check-empate:hover input[type=checkbox] + label {
+	display: block;
+	cursor: pointer;
+}
+
+.check-empate input[type=checkbox]:checked + label {
+	display: block;
+	//background-image: url('../../../assets/quiniela/images/fotballE.svg');
+	background-repeat: no-repeat;
+}
+
+/*visitante*/
+.check-visita input[type=checkbox]{
+  display: none;
+}
+
+.check-visita input[type=checkbox] + label {
+	display: block;
+	////background-image: url('../../../assets/quiniela/images/fotballN.svg');
+	background-repeat: no-repeat;
+	height: 30px;
+  width: 30px;
+}
+
+.check-visita:hover input[type=checkbox] + label {
+	display: block;
+	cursor: pointer;
+}
+
+.check-visita input[type=checkbox]:checked + label {
+	display: block;
+	//background-image: url('../../../assets/quiniela/images/fotballV.svg');
+	background-repeat: no-repeat;
+}
+
+
+/*Cuenta regresiva*/
+ul {
+  display: flex;
+  justify-content: center;
+}
+
+.coming-soon {
+  width:25%;
+  float: left;
+}
+
+.time-countdown ul {
+  margin: 26px auto;
+}
+
+.time-countdown ul li.count-bg-one {
+  background: #ffffff;
+  color: #000;
+}
+
+.time-countdown ul li.count-bg-two {
+  background: #ffffff;
+  color: #000;;
+}
+
+.time-countdown ul li.count-bg-three {
+  background: #ffffff;
+  color: #000;
+}
+
+.time-countdown ul li.count-bg-four {
+  background: #ffffff;
+  color: #000;
+}
+
+.time-countdown ul li {
+  width: 30%;
+  margin-right: 3%;
+  text-align: center;
+  display: inline-block;
+  padding: 24px 20px;
+  color: #fff;
+}
+
+.radius {
+  border-radius: 10px;
+}
+
+.time-countdown ul li span {
+  color: #6304a3;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  line-height: 10px;
+  font-weight: 700;
+  display: block;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  table {
+      width:100%;
+  }
+  thead {
+      display: none;
+  }
+  tr:nth-of-type(2n) {
+      background-color: inherit;
+  }
+  tr td:first-child {
+      background: #f0f0f0;
+      font-weight:bold;
+      font-size:1.3em;
+  }
+  tbody td {
+      display: block;
+      text-align:center;
+  }
+  tbody td:before {
+      content: attr(data-th);
+      display: block;
+      text-align:center;
+  }
+}
+@media screen and (max-width: 320px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
