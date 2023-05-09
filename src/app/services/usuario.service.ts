@@ -9,7 +9,7 @@ import { UsuarioI } from 'src/app/interfaces/usuario.interface';
 export class UsuarioService {
   //private apiUrl:string = "https://www.apipruebasmoneygoal.somee.com/api/"
   private apiUrl:string = "http://localhost:6394/api/"
-  private endPoint:string = this.apiUrl + "Usuario/";
+  private endPoint:string = this.apiUrl + "users/";
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +23,10 @@ export class UsuarioService {
 
   ValidarExistenciaCorreo(correo: string, password: string, validar: boolean): Observable<any>{
     return this.http.get(this.endPoint + "ValidarExistenciaCorreo" + `?email=${correo}&contrasenia=${password}&validar=${validar}`)
+  }
+
+  getUsers(): Observable<any>{
+    return this.http.get(this.endPoint + "obtenerUsuarios")
   }
 
   //?nombres=${name}&tipoper=${tipo}&estado=${status}

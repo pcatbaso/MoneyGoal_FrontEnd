@@ -6,7 +6,7 @@
 </div>
 <div class="row">
   <div class="table-responsive">
-    <table class="table table-bordered">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered bordered table-striped table-condensed datatable" style="text-align:center;">
       <thead>
           <tr>
               <th>#</th>
@@ -15,18 +15,33 @@
               <th>Telefono</th>
               <th>Email</th>
               <th>Rol</th>
-              <th>Activo</th>
-              <th>Fecha creación</th>
-              <th>Fecha actualización </th>
+              <th>Contraseña</th>
               <th>Activo</th>
               <th>Acciones</th>
           </tr>
       </thead>
       <tbody>
-
-      </tbody>
+        <tr *ngFor="let item of listaUsuarios; index as i">
+            <td>{{ i+1 }}</td>
+            <td>{{ item.nombre_usuario }} {{ item.apellidoPaterno_usuario}} {{ item.apellidoMaterno_usuario }}</td>
+            <td>{{ item.direccion_usuario }}</td>
+            <td>{{ item.telefono_usuario }}</td>
+            <td>{{ item.email_usuario }}</td>
+            <td>{{ item.rol }}</td>
+            <td>{{ item.contrasenia_usuario }}</td>
+            <td>
+              <div class="form-check form-switch" >
+                <input [checked]= item.activo class="form-check-input" style="text-align:center;" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+              </div>
+            </td>
+            <td>
+                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> -->
+            </td>
+        </tr>
+    </tbody>
     </table>
   </div>
-
 </div>
 

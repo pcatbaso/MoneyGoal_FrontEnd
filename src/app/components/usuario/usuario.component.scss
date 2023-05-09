@@ -1,0 +1,21 @@
+table tr th{
+  background:#237434;
+  color:white;
+  text-align:center;
+  vertical-align:center;
+}
+
+table.table td a.view {
+  color: #03A9F4;
+}
+table.table td a.edit {
+  color: #FFC107;
+}
+table.table td a.delete {
+  color: #E34724;
+}
+
+.form-check-input:checked {
+  background-color: rgb(87, 3, 102);
+  border-color: rgb(145, 0, 133);
+}

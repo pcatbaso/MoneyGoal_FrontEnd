@@ -6,7 +6,7 @@
 </div>
 <div class="row">
   <div class="table-responsive">
-    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered bordered table-striped table-condensed datatable">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered bordered table-striped table-condensed datatable" style="text-align:center;">
       <thead>
         <tr>
             <th>#</th>
@@ -24,8 +24,8 @@
               <td>{{ item.fecha_creacion }}</td>
               <td>{{ item.fecha_actualizacion }}</td>
               <td>
-                <div class="form-check form-switch">
-                  <input [checked]= item.activo class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <div class="form-check form-switch" >
+                  <input [checked]= item.activo class="form-check-input" style="text-align:center;" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
                 </div>
               </td>
               <td>

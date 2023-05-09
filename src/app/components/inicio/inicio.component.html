@@ -20,7 +20,7 @@
       <nav class="navbar navbar-expand-lg header-nav fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <!-- <img src="../../../assets/inicio/images/logo2.png" width="100" class="img-fluid" > -->
+            <img src="../../../assets/inicio/images/logo2.png" width="100" class="img-fluid" >
             <!--<img src="../../../assets/inicio/images/logo2.png">-->
 
 
@@ -33,22 +33,22 @@
           <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" routerLink="/Usuario">Participantes</a>
+                <a class="nav-link"  class="{{btnParticipante ? 'active' : ''}}" routerLink="/Usuario" (click)="btnTab('participante')">Participantes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/Equipo">Equipo</a>
+                <a class="nav-link" class="{{btnEquipo ? 'active' : ''}}" routerLink="/Equipo" (click)="btnTab('equipo')">Equipo</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/Quiniela">Quiniela</a>
+                <a class="nav-link" class="{{btnQuiniela ? 'active' : ''}}" routerLink="/Quiniela" (click)="btnTab('quiniela')">Quiniela</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pronostico</a>
+                <a class="nav-link" class="{{btnPronostico ? 'active' : ''}}" href="#" (click)="btnTab('pronostico')">Pronostico</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/Rol">Rol</a>
+                <a class="nav-link" class="{{btnRol ? 'active' : ''}}" routerLink="/Rol" (click)="btnTab('rol')">Rol</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/Apuesta">Apuesta</a>
+                <a class="nav-link" class="{{btnApuesta ? 'active' : ''}}" routerLink="/Apuesta" (click)="btnTab('apuesta')">Apuesta</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
