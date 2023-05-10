@@ -15,4 +15,8 @@ export class RolesService {
   getRoles(): Observable<any>{
     return this.http.get(this.endPoint + "obtenerRoles");
   }
+
+  getDetalleRol(rol: any): Observable<any> {
+    return this.http.put<any>(this.endPoint + "actualizarRol", rol);
+  }
 }

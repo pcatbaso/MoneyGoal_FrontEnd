@@ -3,11 +3,13 @@ import { RolesService } from 'src/app/services/roles.service';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-rol',
   templateUrl: './rol.component.html',
-  styleUrls: ['./rol.component.scss']
+  styleUrls: ['./rol.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class RolComponent {
   listaRoles: any;
@@ -15,10 +17,13 @@ export class RolComponent {
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor (
-    private _rolesService: RolesService
+    private _rolesService: RolesService,
+    config: NgbModalConfig,
+    private modalService: NgbModal
   )
   {
-
+    config.backdrop = 'static';
+		config.keyboard = false;
   }
 
   ngOnInit(){
@@ -48,13 +53,18 @@ export class RolComponent {
       });
   }
 
+  detalleRol(rol: any){
+
+  }
+
   ngOnDestroy(): void{
+
     this.dtTrigger.unsubscribe();
   }
 
-  openModal() {
-
-  }
+  editarRol(content: any) {
+		this.modalService.open(content, { size: 'lg', backdrop: 'static', centered: true });
+	}
 
 
 }

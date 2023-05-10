@@ -31,8 +31,8 @@
                 </div>
               </td>
               <td>
-                <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                <a href="#" class="edit" title="Edit" data-toggle="tooltip"  (click)="openModal()"><i class="material-icons">&#xE254;</i></a>
+                <a href="#" class="view" title="View" data-toggle="tooltip" id="{{ item.id }}" (click)="editarRol(editarRolModal)"><i class="material-icons">&#xE417;</i></a>
+                <a href="#" class="edit" title="Edit" data-toggle="tooltip" id="{{ item.id }}" (click)="editarRol(editarRolModal)"><i class="material-icons">&#xE254;</i></a>
                 <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> -->
               </td>
           </tr>
@@ -41,4 +41,34 @@
   </div>
 
 </div>
+
+<ng-template #editarRolModal let-modal >
+	<div class=""  style="border-radius: 0px; border-left:8px #07a84a solid; border-right: none; border-top:none; border-bottom:none">
+    <div class="card-body">
+      <h4 class="card-title mb-3 text-success text-uppercase text-center">Rol</h4>
+      <br>
+      <form>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingTextInput1" placeholder="John">
+              <label for="floatingTextInput1">Nombre</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3" >
+              <input type="text" class="form-control" id="floatingTextInput2" placeholder="Smith">
+              <label for="floatingTextInput2">Descripción</label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
 
