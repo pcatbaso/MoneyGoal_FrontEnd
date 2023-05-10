@@ -31,8 +31,8 @@
                 </div>
               </td>
               <td>
-                <a href="#" class="view" title="View" data-toggle="tooltip" id="{{ item.id }}" (click)="editarRol(editarRolModal)"><i class="material-icons">&#xE417;</i></a>
-                <a href="#" class="edit" title="Edit" data-toggle="tooltip" id="{{ item.id }}" (click)="editarRol(editarRolModal)"><i class="material-icons">&#xE254;</i></a>
+                <a href="#" class="view" title="View" data-toggle="tooltip" id="{{ item.id }}" (click)="editarRol(editarRolModal, $event)"><i class="material-icons">&#xE417;</i></a>
+                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" id="{{ item.id }}" (click)="editarRol(editarRolModal, item)">&#xE254;</i></a>
                 <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> -->
               </td>
           </tr>
@@ -44,31 +44,34 @@
 
 <ng-template #editarRolModal let-modal >
 	<div class=""  style="border-radius: 0px; border-left:8px #07a84a solid; border-right: none; border-top:none; border-bottom:none">
-    <div class="card-body">
-      <h4 class="card-title mb-3 text-success text-uppercase text-center">Rol</h4>
-      <br>
-      <form>
+    <div class="modal-header">
+      <h4 class="modal-title text-success text-uppercase text-center">Rol</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formRol">
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingTextInput1" placeholder="John">
+              <input type="text" class="form-control" formControlName="nombreRol" placeholder="John">
               <label for="floatingTextInput1">Nombre</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3" >
-              <input type="text" class="form-control" id="floatingTextInput2" placeholder="Smith">
+              <input type="text" class="form-control" formControlName="descriptionRol" placeholder="Smith">
               <label for="floatingTextInput2">Descripción</label>
             </div>
           </div>
         </div>
         <br>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
+          <button type="button" class="btn btn-success" (click)="actualizarRol(formRol.value)">Guardar</button>
         </div>
       </form>
     </div>
+
   </div>
 </ng-template>
 

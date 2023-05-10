@@ -8,7 +8,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DataTablesModule } from 'angular-datatables';
 import { DataTableDirective } from 'angular-datatables/src/angular-datatables.directive';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { MoneyGoalComponent } from './components/money-goal/money-goal.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -39,7 +40,9 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     DataTablesModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    NgbActiveModal,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
