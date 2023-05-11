@@ -1,42 +1,102 @@
-<div class="container">
-  <div class="text-center">
-
-    <h2>Equipo</h2>
+<div class="card">
+  <div class="card-header" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample">
+    <h4 class="modal-title text-success text-center">Registrar Equipo </h4>
+  </div>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" >
+    <div class="card-body">
+      <form >
+        <div class="row" >
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="name" placeholder="John">
+              <label>Nombre</label>
+            </div>
+          </div>
+          <!-- <div class="col">
+            <div class="form-floating mb-3" >
+              <input type="text" class="form-control" formControlName="description" placeholder="Smith">
+              <label >Descripción</label>
+            </div>
+          </div> -->
+          <div class="col">
+            <div class="form-floating mb-3" >
+              <button type="button" class="btn btn-success">Guardar</button>
+            </div>
+          </div>
+        </div>
+        <br>
+      </form>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="table-responsive">
-    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered bordered table-striped table-condensed datatable" style="text-align:center;">
-      <thead>
-        <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Fecha creación</th>
-            <th>Fecha actualización</th>
-            <th>Activo</th>
-            <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let item of listaEquipos; index as i">
-              <td>{{ i+1 }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.fecha_creacion }}</td>
-              <td>{{ item.fecha_actualizacion }}</td>
-              <td>
-                <div class="form-check form-switch" >
-                  <input [checked]= item.activo class="form-check-input" style="text-align:center;" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
-                </div>
-              </td>
-              <td>
-                  <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
-                  <a href="#" class="edit" title="Edit" data-toggle="tooltip" id="{{ item.id }}"><i class="material-icons">&#xE254;</i></a>
-                  <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> -->
-              </td>
+<div class="card">
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed1">
+    <div class="card-body">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered bordered table-striped table-condensed datatable" style="text-align:center;">
+        <thead>
+          <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Fecha creación</th>
+              <th>Fecha actualización</th>
+              <th>Activo</th>
+              <th>Acciones</th>
           </tr>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listaEquipos; index as i">
+                <td>{{ i+1 }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.fecha_creacion }}</td>
+                <td>{{ item.fecha_actualizacion }}</td>
+                <td>
+                  <div class="form-check form-switch" >
+                    <input [checked]= item.activo class="form-check-input" style="text-align:center;" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+                  </div>
+                </td>
+                <td>
+                    <!-- <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a> -->
+                    <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" id="{{ item.id }}" (click)="editarEquipo(editarEquipoModal, item)">&#xE254;</i></a>
+                    <!-- <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a> -->
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
 </div>
 
+
+<ng-template #editarEquipoModal let-modal >
+	<div class=""  style="border-radius: 0px; border-left:8px #07a84a solid; border-right: none; border-top:none; border-bottom:none">
+    <div class="modal-header">
+      <h4 class="modal-title text-success text-uppercase text-center">Equipo</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form >
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="name" placeholder="John">
+              <label >Nombre</label>
+            </div>
+          </div>
+          <!-- <div class="col">
+            <div class="form-floating mb-3" >
+              <input type="text" class="form-control" formControlName="description" placeholder="Smith">
+              <label >Descripción</label>
+            </div>
+          </div> -->
+        </div>
+        <br>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
+          <button type="button" class="btn btn-success" >Guardar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</ng-template>

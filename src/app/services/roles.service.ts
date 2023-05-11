@@ -16,7 +16,11 @@ export class RolesService {
     return this.http.get(this.endPoint + "obtenerRoles");
   }
 
-  updateRol(rol: rolesI): Observable<rolesI> {
+  updateRol(rol: rolesI): Observable<any> {
     return this.http.put<rolesI>(this.endPoint + "actualizarRol", rol);
+  }
+
+  addRol(rol: rolesI): Observable<any> {
+    return this.http.post<rolesI>(this.endPoint + "registrarRoles", rol);
   }
 }

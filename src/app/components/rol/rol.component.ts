@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { rolesI } from 'src/app/interfaces/roles.interface';
 
 @Component({
@@ -18,6 +18,10 @@ export class RolComponent {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   formRol : any;
+  formRegisterRol: any;
+  isCollapsed = true;
+  isCollapsed1 = false;
+
   constructor (
     private _rolesService: RolesService,
     config: NgbModalConfig,
@@ -28,6 +32,11 @@ export class RolComponent {
   {
     config.backdrop = 'static';
 		config.keyboard = false;
+
+    this.formRegisterRol = new FormGroup({
+      name: new FormControl(),
+      description: new FormControl()
+    });
   }
 
   ngOnInit(){
@@ -39,6 +48,8 @@ export class RolComponent {
     };
 
     this.obtenerRoles();
+    this.isCollapsed = true;
+
   }
 
   obtenerRoles(){
@@ -57,9 +68,6 @@ export class RolComponent {
       });
   }
 
-  detalleRol(rol: any){
-  }
-
   ngOnDestroy(): void{
     this.dtTrigger.unsubscribe();
   }
@@ -68,11 +76,16 @@ export class RolComponent {
     this._rolesService.updateRol(rol)
       .subscribe({
         next: resp => {
-          // if(resp[0] === "OK"){
-          //   this.listaRoles = resp[1];
-          //   this.dtTrigger.next(this.listaRoles);
-          //   console.log("listaEquipos", this.listaRoles);
-          // }
+          if(resp[0] === "OK"){
+            this.formRol = this.fb.group({
+              id: "",
+              name: "",
+              description: "",
+              active: ""
+            })
+          }
+          this.modalService.dismissAll();
+          window.location.reload();
         },
         error: err => {
           console.log(err.message)
@@ -84,13 +97,29 @@ export class RolComponent {
 		this.modalService.open(content, { size: 'lg', backdrop: 'static', centered: true });
 
     this.formRol = this.fb.group({
-      nombreRol: [event.name],
-      descriptionRol: [event.description]
+      id: [event.id],
+      name: [event.name],
+      description: [event.description],
+      active: [event.active]
     })
 	}
 
-  dismissModal() {
-    this.activeModal.dismiss();
+  registrarRol(rolNew: any){
+    console.log("rol", rolNew)
+    this._rolesService.addRol(rolNew)
+      .subscribe({
+        next: resp => {
+          if(resp[0] === "OK"){
+            this.formRegisterRol = this.fb.group({
+              id: "",
+              name: "",
+            })
+          }
+          window.location.reload();
+        },
+        error: err => {
+          console.log(err.message)
+        }
+      });
   }
-
 }

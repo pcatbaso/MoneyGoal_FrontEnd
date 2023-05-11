@@ -3,20 +3,26 @@ import { EquipoService } from 'src/app/services/Equipo.service';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-equipo',
   templateUrl: './equipo.component.html',
-  styleUrls: ['./equipo.component.scss']
+  styleUrls: ['./equipo.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
+
 })
 export class EquipoComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   listaEquipos: any;
   dtTrigger: Subject<any> = new Subject<any>();
+  isCollapsed = true;
+  isCollapsed1 = false;
 
   constructor (
     private _equipoService: EquipoService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private modalService: NgbModal
   )
   {
 
@@ -53,5 +59,10 @@ export class EquipoComponent implements OnInit {
 
   ngOnDestroy(): void{
     this.dtTrigger.unsubscribe();
+  }
+
+  editarEquipo(content: any, event: any){
+		this.modalService.open(content, { size: 'lg', backdrop: 'static', centered: true });
+
   }
 }
