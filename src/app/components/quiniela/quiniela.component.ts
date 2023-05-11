@@ -93,7 +93,7 @@ export class QuinielaComponent {
     this._ticketService.insertTicket(this.ticketInsert)
     .subscribe({
       next: resp => {
-        console.log("resp", resp);
+        window.location.reload();
       },
       error: err => {
         console.log(err.message);

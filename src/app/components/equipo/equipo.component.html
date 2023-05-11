@@ -5,7 +5,7 @@
   </div>
   <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" >
     <div class="card-body">
-      <form >
+      <form [formGroup]="formTeamRegister">
         <div class="row" >
           <div class="col">
             <div class="form-floating mb-3">
@@ -21,7 +21,7 @@
           </div> -->
           <div class="col">
             <div class="form-floating mb-3" >
-              <button type="button" class="btn btn-success">Guardar</button>
+              <button type="button" class="btn btn-success" (click)="registrarEquipo(formTeamRegister.value)">Guardar</button>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
                 <td>{{ item.fecha_actualizacion }}</td>
                 <td>
                   <div class="form-check form-switch" >
-                    <input [checked]= item.activo class="form-check-input" style="text-align:center;" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+                    <input [checked]= item.active class="form-check-input" style="text-align:center;" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
                   </div>
                 </td>
                 <td>
@@ -75,7 +75,7 @@
       <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-      <form >
+      <form [formGroup]="formTeam">
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3">
@@ -93,7 +93,7 @@
         <br>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Cerrar</button>
-          <button type="button" class="btn btn-success" >Guardar</button>
+          <button type="button" class="btn btn-success" (click)="actualizarEquipo(formTeam.value)">Guardar</button>
         </div>
       </form>
     </div>

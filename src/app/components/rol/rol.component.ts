@@ -77,15 +77,10 @@ export class RolComponent {
       .subscribe({
         next: resp => {
           if(resp[0] === "OK"){
-            this.formRol = this.fb.group({
-              id: "",
-              name: "",
-              description: "",
-              active: ""
-            })
+            this.modalService.dismissAll();
+            window.location.reload();
           }
-          this.modalService.dismissAll();
-          window.location.reload();
+
         },
         error: err => {
           console.log(err.message)

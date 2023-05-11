@@ -15,4 +15,12 @@ export class EquipoService {
   getEquipo(): Observable<any>{
     return this.http.get(this.endPoint + "obtenerEquipo")
   }
+
+  updateEquipo(equipo: EquipoI): Observable<any> {
+    return this.http.put<EquipoI>(this.endPoint + "actualizarEquipo", equipo);
+  }
+
+  addEquipo(equipo: EquipoI): Observable<any> {
+    return this.http.post<EquipoI>(this.endPoint + "insertarEquipo", equipo);
+  }
 }
