@@ -98,7 +98,6 @@ export class EquipoComponent implements OnInit {
       .subscribe({
         next: resp => {
           if(resp[0] === "OK"){
-            this.modalService.dismissAll();
             window.location.reload();
           }
 
