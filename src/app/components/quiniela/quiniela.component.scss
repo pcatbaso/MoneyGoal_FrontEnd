@@ -23,7 +23,7 @@
 }
 
 .item-box {
-  padding: 8px 10px;
+  padding: 3px 10px;
   border: solid 1px #ccc;
   margin-bottom: 5px;
   color: rgba(0, 0, 0, 0.87);
@@ -36,7 +36,7 @@
   cursor: move;
   background: rgb(223, 224, 224);
   font-size: 14px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .cdk-drag-preview {
@@ -79,7 +79,7 @@
   margin: 25px 0;
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 400px;
+  min-width: 300px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border: 2px solid rgb(5, 88, 5);
   margin-left: auto;
@@ -109,4 +109,9 @@
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: rgb(5, 88, 5);
+}
+
+
+input[type="date"]{
+  padding: 4px;
 }

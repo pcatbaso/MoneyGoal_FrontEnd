@@ -3,11 +3,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 </head><!--CAMBIOS-->
 <div class="container">
-  <div class="text-center">
+  <!-- <div class="text-center">
 
     <h2>Crear quiniela</h2>
     <p class="lead"></p>
-  </div>
+  </div> -->
 
   <div class="row">
     <!-- <div class="col-md-4 order-md-2 mb-4">
@@ -68,17 +68,21 @@
             <input formControlName="numConcurso" type="number" class="form-control" id="firstName">
           </div>
           <div class="col-md-4 mb-2">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+          </div>
+          <!-- <div class="col-md-4 mb-2">
             <label >Fecha inicio</label>
             <input formControlName="dateStart" id="dateInicio" class="form-control" type="date" />
           </div>
           <div class="col-md-4 mb-2">
             <label >Fecha de cierre</label>
-            <input formControlName="dateEnd" id="dateInicio" class="form-control" type="date" />
-          </div>
+            <input class="item-box" formControlName="dateEnd" id="dateInicio" class="form-control" type="date" />
+          </div> -->
         </div>
         <hr class="mb-4">
+        <h4 class="mb-3">Crear quiniela</h4>
         <div class="row">
-          <div class="col-md-4 mb-2"  style="height: 600px; overflow-y: scroll; overflow-x: hidden;">
+          <div class="col-md-4 mb-2"  style="height: 600px;  overflow-y: scroll; overflow-x: hidden;">
             <table class="styled-table table">
               <thead style=" position: sticky;
               top: 0;">
@@ -113,7 +117,7 @@
                     </tbody>
                   </table>
                 </td>
-                <td>vs</td>
+                <td><strong>VS</strong></td>
                 <td>
                   <table class="styled-table table">
                     <thead style=" position: sticky;
@@ -125,7 +129,7 @@
                     <tbody>
                       <div cdkDropList #reviewList="cdkDropList" [cdkDropListData]="listaVisitante" [cdkDropListConnectedTo]="[doneList, pendingList]"
                           class="item-list" (cdkDropListDropped)="drop($event)">
-                          <div class="item-box" *ngFor="let item of listaVisitante" cdkDrag>{{item.name}}</div>
+                          <div  class="item-box" *ngFor="let item of listaVisitante" cdkDrag>{{item.name}}</div>
                         </div>
                     </tbody>
                   </table>
@@ -139,20 +143,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <div cdkDropList #reviewList="cdkDropList" [cdkDropListData]="listaVisitante" [cdkDropListConnectedTo]="[doneList, pendingList]"
-                          class="item-list" (cdkDropListDropped)="drop($event)">
-                          <div class="item-box" *ngFor="let item of listaVisitante" cdkDrag>{{item.name}}</div>
-                        </div>
+                      <div *ngFor="let item of listaVisitante">
+                        <input formControlName="dateStart" id="dateInicio" class="form-control" type="date" />
+                      </div>
                     </tbody>
                   </table>
                 </td>
               </tbody>
             </table>
-
-
-          </div>
-          <div class="col-md-4 mb-2">
-
 
 
           </div>
@@ -190,7 +188,7 @@
         </div>
 
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+
       </form>
       <br>
       <br>
