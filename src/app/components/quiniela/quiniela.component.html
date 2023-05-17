@@ -78,7 +78,86 @@
         </div>
         <hr class="mb-4">
         <div class="row">
+          <div class="col-md-4 mb-2"  style="height: 600px; overflow-y: scroll; overflow-x: hidden;">
+            <table class="styled-table table">
+              <thead style=" position: sticky;
+              top: 0;">
+                <tr>
+                  <th style="text-align: center;">Lista de equipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <div cdkDropList #pendingList="cdkDropList" [cdkDropListData]="listaEquipos" [cdkDropListConnectedTo]="[doneList,reviewList]"
+                  class="item-list" (cdkDropListDropped)="drop($event)">
+                  <div class="item-box" *ngFor="let item of listaEquipos" cdkDrag>{{item.name}}</div>
+                </div>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-8 mb-2">
+            <table>
+              <tbody>
+                <td>
+                  <table class="styled-table table">
+                    <thead style=" position: sticky;
+                    top: 0;">
+                      <tr>
+                        <th style="text-align: center;">Local</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="listaLocal" [cdkDropListConnectedTo]="[pendingList,reviewList]"
+                          class="item-list" (cdkDropListDropped)="drop($event)">
+                          <div class="item-box" *ngFor="let item of listaLocal" cdkDrag>{{item.name}}</div>
+                        </div>
+                    </tbody>
+                  </table>
+                </td>
+                <td>vs</td>
+                <td>
+                  <table class="styled-table table">
+                    <thead style=" position: sticky;
+                    top: 0;">
+                      <tr>
+                        <th style="text-align: center;">Visitante</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <div cdkDropList #reviewList="cdkDropList" [cdkDropListData]="listaVisitante" [cdkDropListConnectedTo]="[doneList, pendingList]"
+                          class="item-list" (cdkDropListDropped)="drop($event)">
+                          <div class="item-box" *ngFor="let item of listaVisitante" cdkDrag>{{item.name}}</div>
+                        </div>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                  <table class="styled-table table">
+                    <thead style=" position: sticky;
+                    top: 0;">
+                      <tr>
+                        <th>Fecha de inicio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <div cdkDropList #reviewList="cdkDropList" [cdkDropListData]="listaVisitante" [cdkDropListConnectedTo]="[doneList, pendingList]"
+                          class="item-list" (cdkDropListDropped)="drop($event)">
+                          <div class="item-box" *ngFor="let item of listaVisitante" cdkDrag>{{item.name}}</div>
+                        </div>
+                    </tbody>
+                  </table>
+                </td>
+              </tbody>
+            </table>
+
+
+          </div>
           <div class="col-md-4 mb-2">
+
+
+
+          </div>
+
+          <!-- <div class="col-md-4 mb-2">
             <div class="drag-container">
                 <div class="section-heading">Lista equipo</div>
 
@@ -107,7 +186,7 @@
                     <div class="item-box" *ngFor="let item of listaVisitante" cdkDrag>{{item.name}}</div>
                   </div>
                 </div>
-          </div>
+          </div> -->
         </div>
 
         <hr class="mb-4">
