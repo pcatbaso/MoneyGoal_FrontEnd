@@ -68,16 +68,16 @@
             <input formControlName="numConcurso" type="number" class="form-control" id="firstName">
           </div>
           <div class="col-md-4 mb-2">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
-          </div>
-          <!-- <div class="col-md-4 mb-2">
             <label >Fecha inicio</label>
-            <input formControlName="dateStart" id="dateInicio" class="form-control" type="date" />
+            <input formControlName="dateStart" id="dateInicio" class="form-control" type="datetime-local" />
           </div>
           <div class="col-md-4 mb-2">
             <label >Fecha de cierre</label>
-            <input class="item-box" formControlName="dateEnd" id="dateInicio" class="form-control" type="date" />
-          </div> -->
+            <input class="item-box" formControlName="dateEnd" id="dateInicio" class="form-control" type="datetime-local" />
+          </div>
+          <div class="col-md-4 mb-2">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+          </div>
         </div>
         <hr class="mb-4">
         <h4 class="mb-3">Crear quiniela</h4>
@@ -99,7 +99,7 @@
             </table>
           </div>
           <div class="col-md-8 mb-2">
-            <table>
+            <table id="tableComplete">
               <tbody>
                 <td>
                   <table class="styled-table table">
@@ -143,8 +143,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <div *ngFor="let item of listaVisitante">
-                        <input formControlName="dateStart" id="dateInicio" class="form-control" type="date" />
+                      <div *ngFor="let item of listaVisitante; index as i">
+                        <input id="{{ i + 1 }}" class="form-control" type="datetime-local" />
                       </div>
                     </tbody>
                   </table>

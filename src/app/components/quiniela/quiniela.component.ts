@@ -15,6 +15,7 @@ export class QuinielaComponent {
   listaEquipos: any;
   listaLocal: any;
   listaVisitante: any;
+  listaFechasVS: any;
 
   ticketInsert = { } as ticketI;
   ticketInsertDetail= { } as ticketDetailI;
@@ -35,6 +36,7 @@ export class QuinielaComponent {
 
   ngOnInit(){
     this.obtenerListaEquipo();
+
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -60,6 +62,7 @@ export class QuinielaComponent {
             this.listaEquipos = resp[1];
             this.listaLocal = [];
             this.listaVisitante = [];
+            this.listaFechasVS = [];
           }
         },
         error: err => {
@@ -70,42 +73,59 @@ export class QuinielaComponent {
 
   saveQuiniela(quiniela: any){
 
-    this.ticketInsert.idTicketBet = quiniela.numConcurso;
-    this.ticketInsert.active = 1;
-    this.ticketInsert.dateActive = quiniela.dateStart.toString();
-    this.ticketInsert.dateDeactive = quiniela.dateEnd.toString();
-    this.ticketInsert.listTicketDetail = [];
+    if(this.saveDateTeam()){
+      this.ticketInsert.idTicketBet = quiniela.numConcurso;
+        this.ticketInsert.active = 1;
+        this.ticketInsert.dateActive = quiniela.dateStart.toString();
+        this.ticketInsert.dateDeactive = quiniela.dateEnd.toString();
+        this.ticketInsert.listTicketDetail = [];
 
-    for(let l = 0; l < this.listaLocal.length; l++){
-      this.ticketInsertDetail = {
-        idTicketBet: quiniela.numConcurso,
-        numGame: l+1,
-        idLocalTeam: this.listaLocal[l].id,
-        idVisitingTeam: this.listaVisitante[l].id,
-        result: ""
+        for(let l = 0; l < this.listaLocal.length; l++){
+          this.ticketInsertDetail = {
+            idTicketBet: quiniela.numConcurso,
+            numGame: l+1,
+            idLocalTeam: this.listaLocal[l].id,
+            idVisitingTeam: this.listaVisitante[l].id,
+            startDate: new Date(this.listaFechasVS[l]).toString(),
+            result: ""
+          }
+
+          this.ticketInsert.listTicketDetail.push(this.ticketInsertDetail);
+        }
+
+        console.log(this.ticketInsert);
+
+        this._ticketService.insertTicket(this.ticketInsert)
+        .subscribe({
+          next: resp => {
+            window.location.reload();
+          },
+          error: err => {
+            console.log(err.message);
+          }
+        });
       }
 
-      this.ticketInsert.listTicketDetail.push(this.ticketInsertDetail);
-    }
-
-    console.log(this.ticketInsert);
-
-    this._ticketService.insertTicket(this.ticketInsert)
-    .subscribe({
-      next: resp => {
-        window.location.reload();
-      },
-      error: err => {
-        console.log(err.message);
-      }
-    });
 
 
   }
 
+  saveDateTeam() {
+    this.listaFechasVS = [];
+    var tableLocal = (<HTMLScriptElement[]><any>document.getElementById("tableComplete")?.getElementsByTagName("td")[3].getElementsByTagName("tbody")[0].getElementsByTagName("div"));
 
+    Array.from(tableLocal).forEach(element => {
+      console.log(element);
 
+      var ti = (<HTMLScriptElement[]><any>element.getElementsByTagName("input")[0].value);
+      console.log("i",ti);
 
+      this.listaFechasVS.push(ti);
+    });
 
+    console.log("arrayLis", this.listaFechasVS);
 
+    return true;
+
+  }
 }

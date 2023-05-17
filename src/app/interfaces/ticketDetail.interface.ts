@@ -3,5 +3,6 @@ export interface ticketDetailI{
   numGame: number;
   idLocalTeam: number;
   idVisitingTeam: number;
+  startDate: string;
   result: string;
 }
