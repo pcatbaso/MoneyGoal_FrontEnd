@@ -15,4 +15,8 @@ export class TicketService {
   insertTicket(ticket: ticketI): Observable<any>{
     return this.http.post<ticketI>(this.endPoint + "regitrarTicket", ticket);
   }
+
+  getTicketDisponibles(): Observable<any> {
+    return this.http.get(this.endPoint + "ticketActivos");
+  }
 }

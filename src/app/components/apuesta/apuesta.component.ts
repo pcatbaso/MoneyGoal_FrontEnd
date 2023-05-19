@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { timer } from 'rxjs';
+import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
   selector: 'app-apuesta',
@@ -7,33 +8,33 @@ import { timer } from 'rxjs';
   styleUrls: ['./apuesta.component.scss']
 })
 export class ApuestaComponent {
-  _second = 1000;
-  _minute = this._second * 60;
-  _hour = this._minute * 60;
-  _day = this._hour * 24;
-  end: any;
-  now: any;
-  day: any;
-  hours: any;
-  minutes: any;
-  seconds: any;
-  source = timer(0, 1000);
-  clock: any;
-  constructor(){}
+
+  listaTickets: any;
+  local = "local_";
+  empate = "empate_";
+  visita = "visita_";
+  check = "check_";
+
+  constructor(
+    private _ticketService: TicketService,
+  ){}
+
   ngOnInit(){
-
-    this.clock = this.source.subscribe(t => {
-      this.now = new Date();
-      this.end = new Date('01/01/' + (this.now.getFullYear() + 1) +' 00:00');
-      this.showDate();
-    });
-
+    this.ticketDisponibles();
   }
-  showDate(){
-    let distance = this.end - this.now;
-    this.day = Math.floor(distance / this._day);
-    this.hours = Math.floor((distance % this._day) / this._hour);
-    this.minutes = Math.floor((distance % this._hour) / this._minute);
-    this.seconds = Math.floor((distance % this._minute) / this._second);
+
+  ticketDisponibles(){
+    this._ticketService.getTicketDisponibles()
+    .subscribe({
+      next: resp => {
+        if(resp[0] === "OK"){
+          this.listaTickets = resp[1];
+          console.log("listaTickets",this.listaTickets);
+        }
+      },
+      error: err => {
+        console.log(err.message)
+      }
+    });
   }
 }

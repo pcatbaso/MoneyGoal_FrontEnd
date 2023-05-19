@@ -16,6 +16,8 @@ export class QuinielaComponent {
   listaLocal: any;
   listaVisitante: any;
   listaFechasVS: any;
+  dateMax: any;
+  dateMin: any;
 
   ticketInsert = { } as ticketI;
   ticketInsertDetail= { } as ticketDetailI;
@@ -76,8 +78,8 @@ export class QuinielaComponent {
     if(this.saveDateTeam()){
       this.ticketInsert.idTicketBet = quiniela.numConcurso;
         this.ticketInsert.active = 1;
-        this.ticketInsert.dateActive = quiniela.dateStart.toString();
-        this.ticketInsert.dateDeactive = quiniela.dateEnd.toString();
+        this.ticketInsert.dateActive = this.dateMin.toLocaleString();
+        this.ticketInsert.dateDeactive = this.dateMax.toLocaleString();
         this.ticketInsert.listTicketDetail = [];
 
         for(let l = 0; l < this.listaLocal.length; l++){
@@ -86,7 +88,7 @@ export class QuinielaComponent {
             numGame: l+1,
             idLocalTeam: this.listaLocal[l].id,
             idVisitingTeam: this.listaVisitante[l].id,
-            startDate: new Date(this.listaFechasVS[l]).toString(),
+            startDate: new Date(this.listaFechasVS[l]).toLocaleString(),
             result: ""
           }
 
@@ -117,14 +119,18 @@ export class QuinielaComponent {
     Array.from(tableLocal).forEach(element => {
       console.log(element);
 
-      var ti = (<HTMLScriptElement[]><any>element.getElementsByTagName("input")[0].value);
+      var ti = (<HTMLScriptElement[]><any>element.getElementsByTagName("input")[0].value).toLocaleString();
       console.log("i",ti);
 
-      this.listaFechasVS.push(ti);
+      this.listaFechasVS.push(new Date(ti));
     });
 
     console.log("arrayLis", this.listaFechasVS);
+    this.dateMax = new Date(Math.max.apply(null, this.listaFechasVS));
+    this.dateMin = new Date(Math.min.apply(null, this.listaFechasVS));
 
+    // console.log("valor minimo" , min.toISOString())
+    // console.log("valor maximo" ,max.toISOString())
     return true;
 
   }
