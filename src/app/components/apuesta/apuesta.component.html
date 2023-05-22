@@ -1,71 +1,129 @@
-<div class="wrapper">
+<div class="demo">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-4" *ngFor="let item of listaTickets">
-        <div class="card mx-30">
-          <table class="styled-table table">
-            <thead>
-              <tr>
-                <th colspan="5" style="text-align: center; font-size: 20px;">Selecciona tus combinaciones</th>
-              </tr>
-              <tr>
-                <th colspan="5" style="text-align: center; font-size: 15px;" >{{"Concurso"}} {{"#"}}{{item.idTicketBet}}</th>
-              </tr>
-              <tr>
-                <th colspan="5" style="text-align: center; font-size: 10px;" >{{"Partidos del"}} {{item.dateActive}} {{"al"}} {{item.dateDeactive}}</th>
+      <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let item of listaTickets">
+          <div class="pricingTable red" style="margin-bottom: 5%;">
+            <div class="pricingTable-header">
+              <!-- <i class="fa fa-adjust"></i> -->
+              <div class="price-value">{{"Partidos del"}} {{item.dateRange}}</div>
+            </div>
+            <!-- <h3 class="heading">Standard</h3> -->
+            <div class="pricing-content" >
+              <ul>
+                <table class="styled-table table">
+                  <thead>
+                    <!-- <tr>
+                      <th colspan="5" style="text-align: center; font-size: 20px;">Selecciona tus combinaciones</th>
+                    </tr> -->
+                    <tr>
+                      <th colspan="5" style="text-align: center; font-size: 15px;" >{{"Concurso"}} {{"#"}}{{item.idTicketBet}}</th>
+                    </tr>
+                    <!-- <tr>
+                      <th colspan="5" style="text-align: center; font-size: 10px;" >{{"Partidos del"}} {{item.dateActive}} {{"al"}} {{item.dateDeactive}}</th>
 
-                <!-- <th colspan="5" style="text-align: center; font-size: 10px;" >Partidos del viernes 08 al domingo 10 de julio de 2022</th> -->
-              </tr>
-              <tr>
-                <th colspan="5"></th>
-              </tr>
-              <tr>
-                <th colspan="2" style="text-align: center;">Local</th>
-                <th style="text-align: center;">Empate</th>
-                <th colspan="2" style="text-align: center;">Visita</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr style="text-align: center;" *ngFor="let itemD of item.listTicketDetail; index as i">
-                    <td class="check-local">
-                    <div style="display: flex;justify-content: center;align-items: center;">
-                      <input type="checkbox" value="L" id="{{local}}{{item.idTicketBet}}{{itemD.numGame}}" name="{{check}}{{item.idTicketBet}}{{itemD.numGame}}" >
-                      <label for="{{local}}{{item.idTicketBet}}{{itemD.numGame}}">&nbsp;</label>
-                    </div>
-                    </td>
-                    <td>{{ itemD.nameLocal }}</td>
-                    <td class="check-empate">
-                    <div style="display: flex;justify-content: center;align-items: center;">
-                      <input type="checkbox" value="E" id="{{empate}}{{item.idTicketBet}}{{itemD.numGame}}" name="{{check}}{{item.idTicketBet}}{{itemD.numGame}}" >
-                      <label for="{{empate}}{{item.idTicketBet}}{{itemD.numGame}}">&nbsp;</label>
-                    </div>
-                    </td>
-                    <td>{{ itemD.nameVisitante }}</td>
-                    <td class="check-visita">
-                    <div style="display: flex;justify-content: center;align-items: center;">
-                      <input type="checkbox" value="V" id="{{visita}}{{item.idTicketBet}}{{itemD.numGame}}" name="{{check}}{{item.idTicketBet}}{{itemD.numGame}}" >
-                      <label for="{{visita}}{{item.idTicketBet}}{{itemD.numGame}}">&nbsp;</label>
-                    </div>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-          <!-- <img src="https://i.postimg.cc/WzjcC7Hb/1.jpg" class="card-img-top" alt="..."> -->
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <h6></h6>
-            <p class="card-text"></p>
-            <div class="socials">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-youtube"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-              <a href="#"><i class="fa fa-dribbble"></i></a>
+                    </tr> -->
+                    <!-- <tr>
+                      <th colspan="5"></th>
+                    </tr> -->
+                    <tr>
+                      <th  style="text-align: center;">Local</th>
+                      <th style="text-align: center;"></th>
+                      <th style="text-align: center;">Visita</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr style="text-align: center;" *ngFor="let itemD of item.listTicketDetail; index as i">
+                          <!-- <td class="check-local">
+                          <div style="display: flex;justify-content: center;align-items: center;">
+                            <input type="checkbox" [disabled]="true" value="L" id="{{local}}{{item.idTicketBet}}{{itemD.numGame}}" name="{{check}}{{item.idTicketBet}}{{itemD.numGame}}" >
+                            <label for="{{local}}{{item.idTicketBet}}{{itemD.numGame}}">&nbsp;</label>
+                          </div>
+                          </td> -->
+                          <td>{{ itemD.nameLocal }}</td>
+                          <td><strong>VS</strong></td>
+                          <!-- <td class="check-empate">
+                          <div style="display: flex;justify-content: center;align-items: center;">
+                            <input type="checkbox" [disabled]="true" value="E" id="{{empate}}{{item.idTicketBet}}{{itemD.numGame}}" name="{{check}}{{item.idTicketBet}}{{itemD.numGame}}" >
+                            <label for="{{empate}}{{item.idTicketBet}}{{itemD.numGame}}">&nbsp;</label>
+                          </div>
+                          </td> -->
+                          <td>{{ itemD.nameVisitante }}</td>
+                          <!-- <td class="check-visita">
+                          <div style="display: flex;justify-content: center;align-items: center;">
+                            <input type="checkbox" [disabled]="true" value="V" id="{{visita}}{{item.idTicketBet}}{{itemD.numGame}}" name="{{check}}{{item.idTicketBet}}{{itemD.numGame}}" >
+                            <label for="{{visita}}{{item.idTicketBet}}{{itemD.numGame}}">&nbsp;</label>
+                          </div>
+                          </td> -->
+                      </tr>
+                  </tbody>
+                </table>
+              </ul>
+            </div>
+            <div class="pricingTable-signup" >
+              <a href="#" id={{item.idTicketBet}} (click)="seleccionarTicket(TicketSelect, item)">Seleccionar</a>
             </div>
           </div>
         </div>
       </div>
-
-    </div>
   </div>
 </div>
 
+
+<ng-template #TicketSelect let-modal >
+	<div class=""  style="border-radius: 0px; border-right: none; border-top:none; border-bottom:none">
+    <div class="modal-header">
+      <!-- <h4 class="modal-title text-success text-uppercase text-center"></h4> -->
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <table class="styled-table table">
+        <thead>
+          <tr>
+            <th colspan="5" style="text-align: center; font-size: 20px;">Selecciona tus combinaciones</th>
+          </tr>
+          <tr>
+            <th colspan="5" style="text-align: center; font-size: 15px;" >{{"Concurso"}} {{"#"}}{{ticketSelect.idTicketBet}}</th>
+          </tr>
+          <tr>
+            <th colspan="5" style="text-align: center; font-size: 10px;" >{{"Partidos del"}} {{ticketSelect.dateRange}}</th>
+
+            <!-- <th colspan="5" style="text-align: center; font-size: 10px;" >Partidos del viernes 08 al domingo 10 de julio de 2022</th> -->
+          </tr>
+          <tr>
+            <th colspan="5"></th>
+          </tr>
+          <tr>
+            <th colspan="2" style="text-align: center;">Local</th>
+            <th style="text-align: center;">Empate</th>
+            <th colspan="2" style="text-align: center;">Visita</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr style="text-align: center;" *ngFor="let selectItem of ticketSelect.listTicketDetail; index as i">
+                <td class="check-local">
+                <div style="display: flex;justify-content: center;align-items: center;">
+                  <input type="checkbox" value="L" id="{{local}}{{selectItem.idTicketBet}}{{selectItem.numGame}}" name="{{check}}{{selectItem.idTicketBet}}{{selectItem.numGame}}" >
+                  <label for="{{local}}{{selectItem.idTicketBet}}{{selectItem.numGame}}">&nbsp;</label>
+                </div>
+                </td>
+                <td>{{ selectItem.nameLocal }}</td>
+                <td class="check-empate">
+                <div style="display: flex;justify-content: center;align-items: center;">
+                  <input type="checkbox" value="E" id="{{empate}}{{selectItem.idTicketBet}}{{selectItem.numGame}}" name="{{check}}{{selectItem.idTicketBet}}{{selectItem.numGame}}" >
+                  <label for="{{empate}}{{selectItem.idTicketBet}}{{selectItem.numGame}}">&nbsp;</label>
+                </div>
+                </td>
+                <td>{{ selectItem.nameVisitante }}</td>
+                <td class="check-visita">
+                <div style="display: flex;justify-content: center;align-items: center;">
+                  <input type="checkbox" value="V" id="{{visita}}{{selectItem.idTicketBet}}{{selectItem.numGame}}" name="{{check}}{{selectItem.idTicketBet}}{{selectItem.numGame}}" >
+                  <label for="{{visita}}{{selectItem.idTicketBet}}{{selectItem.numGame}}">&nbsp;</label>
+                </div>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</ng-template>

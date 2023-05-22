@@ -16,7 +16,7 @@ export class TicketService {
     return this.http.post<ticketI>(this.endPoint + "regitrarTicket", ticket);
   }
 
-  getTicketDisponibles(): Observable<any> {
-    return this.http.get(this.endPoint + "ticketActivos");
+  getTicketDisponibles(idTicket: number): Observable<any> {
+    return this.http.get(this.endPoint + "ticketActivos" + `?idTicket_param=${idTicket}`);
   }
 }
