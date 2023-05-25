@@ -19,6 +19,11 @@ export class ApuestaComponent {
   check = "check_";
 
   ticketSelect: any;
+  tableGen: any;
+  inputTable: any;
+
+  quinielaDoble: any;
+  quinielaTriple: any;
 
   constructor(
     private _ticketService: TicketService,
@@ -62,6 +67,50 @@ export class ApuestaComponent {
 
     console.log("this.ticket", this.ticketSelect)
 
+
   }
 
+  selectCheck(event: any){
+    this.tableGen = (<HTMLScriptElement[]><any>document.getElementById("tableSeleccionada")?.getElementsByTagName("tbody")[0].rows);
+    var quinielaDoble = 0;
+    var quinielaTriple = 0;
+
+    for(var i = 0; i < this.tableGen.length; i++){
+
+      var arrayTrue = 0;
+      var arrayFalse = 0;
+
+      this.inputTable = (<HTMLScriptElement[]><any>this.tableGen[i].getElementsByTagName("input"))
+      for(var j = 0; j < this.inputTable.length; j++){
+
+        if(this.inputTable[j].checked)
+        {
+          arrayTrue = arrayTrue + 1;
+        }
+        else{
+          arrayFalse = arrayFalse + 1 ;
+        }
+      }
+
+      if(arrayTrue == 3){
+        if(quinielaTriple == 2){
+          console.log("limite de quinielas triples")
+         // event.target.checked = false;
+        }
+        else{
+          quinielaTriple = quinielaTriple + 1;
+        }
+      }
+
+      if(arrayTrue == 2){
+        if(quinielaDoble == 4){
+          console.log("limite de quinielas dobles")
+          //event.target.checked = false;
+        }
+        else{
+          quinielaDoble = quinielaDoble + 1;
+        }
+      }
+    }
+  }
 }
