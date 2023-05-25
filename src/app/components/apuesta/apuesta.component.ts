@@ -22,8 +22,9 @@ export class ApuestaComponent {
   tableGen: any;
   inputTable: any;
 
-  quinielaDoble: any;
-  quinielaTriple: any;
+  totalDobles: any;
+  totalTriples: any;
+  totalSencillas: any;
 
   constructor(
     private _ticketService: TicketService,
@@ -32,8 +33,6 @@ export class ApuestaComponent {
 
   ngOnInit(){
     this.ticketDisponibles(0);
-
-
   }
 
   ticketDisponibles(idTicket: number){
@@ -42,14 +41,6 @@ export class ApuestaComponent {
       next: resp => {
         if(resp[0] === "OK"){
           this.listaTickets = resp[1];
-          //this.listaDiv = [];
-
-          // const LONGITUD_PEDAZOS = 3;
-          //  // Partir en arreglo de 3
-          // for (let i = 0; i < this.listaTickets?.length; i += LONGITUD_PEDAZOS) {
-          //   let pedazo = this.listaTickets.slice(i, i + LONGITUD_PEDAZOS);
-          //   this.listaDiv.push(pedazo);
-          // }
            console.log("listaTickets",this.listaTickets);
         }
       },
@@ -74,6 +65,7 @@ export class ApuestaComponent {
     this.tableGen = (<HTMLScriptElement[]><any>document.getElementById("tableSeleccionada")?.getElementsByTagName("tbody")[0].rows);
     var quinielaDoble = 0;
     var quinielaTriple = 0;
+    var quinielaSencilla = 0;
 
     for(var i = 0; i < this.tableGen.length; i++){
 
@@ -84,33 +76,39 @@ export class ApuestaComponent {
       for(var j = 0; j < this.inputTable.length; j++){
 
         if(this.inputTable[j].checked)
-        {
           arrayTrue = arrayTrue + 1;
-        }
-        else{
+        else
           arrayFalse = arrayFalse + 1 ;
+      }
+
+      if(arrayTrue == 1 && arrayFalse == 2){
+        quinielaSencilla = quinielaSencilla + 1;
+        this.totalSencillas = quinielaSencilla;
+      }
+      else{
+        if(arrayTrue == 3){
+          if(quinielaTriple == 2){
+            console.log("limite de quinielas triples")
+           // event.target.checked = false;
+          }
+          else{
+            quinielaTriple = quinielaTriple + 1;
+            this.totalTriples = quinielaTriple;
+          }
+        }
+
+        if(arrayTrue == 2){
+          if(quinielaDoble == 4){
+            console.log("limite de quinielas dobles")
+            //event.target.checked = false;
+          }
+          else{
+            quinielaDoble = quinielaDoble + 1;
+            this.totalDobles = quinielaDoble;
+          }
         }
       }
 
-      if(arrayTrue == 3){
-        if(quinielaTriple == 2){
-          console.log("limite de quinielas triples")
-         // event.target.checked = false;
-        }
-        else{
-          quinielaTriple = quinielaTriple + 1;
-        }
-      }
-
-      if(arrayTrue == 2){
-        if(quinielaDoble == 4){
-          console.log("limite de quinielas dobles")
-          //event.target.checked = false;
-        }
-        else{
-          quinielaDoble = quinielaDoble + 1;
-        }
-      }
     }
   }
 }
