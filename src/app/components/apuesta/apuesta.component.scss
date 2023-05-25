@@ -110,7 +110,7 @@ body {
 
 .check-local input[type=checkbox]:checked + label {
 	display: block;
-  background-image: url('../../../assets/apuesta/images/fotballL.svg');
+  background-image: url('../../../assets/apuesta/images/fotballA.svg');
 	//background-image: url('../../../assets/apuesta/images/fotballL.svg');
 	background-repeat: no-repeat;
 }
@@ -135,7 +135,7 @@ body {
 
 .check-empate input[type=checkbox]:checked + label {
 	display: block;
-	background-image: url('../../../assets/apuesta/images/fotballE.svg');
+	background-image: url('../../../assets/apuesta/images/fotballA.svg');
 	background-repeat: no-repeat;
 }
 
@@ -159,7 +159,7 @@ body {
 
 .check-visita input[type=checkbox]:checked + label {
 	display: block;
-	background-image: url('../../../assets/apuesta/images/fotballV.svg');
+	background-image: url('../../../assets/apuesta/images/fotballA.svg');
 	background-repeat: no-repeat;
 }
 
@@ -235,8 +235,8 @@ a {
 
 .pricingTable .pricing-content ul {
   list-style: none;
-  padding: 30px 30px 0px 30px;
-  margin-bottom: 30px
+  padding: 90px 30px 0px 30px;
+  margin-bottom: 10px
 }
 
 .pricingTable .pricing-content ul li {
@@ -344,4 +344,21 @@ a {
     display: block;
     overflow-x: auto;
   }
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -100px 0px -100px 0px;
+}
+ul li {
+  width: calc(33% - 30px);
+  margin: 10%;
+  //height: 10%;
+  //background: rgb(125, 223, 85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
