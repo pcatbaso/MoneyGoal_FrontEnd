@@ -54,35 +54,53 @@
                 <tr>
                   <th scope="col">Quiniela</th>
                   <th scope="col">Combinaciones</th>
-                  <th scope="col">Costo</th>
-                  <th scope="col">Total MXN</th>
                   <th scope="col">Total USD</th>
+                  <th scope="col">Total MXN</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Sencila</td>
+                  <td>Sencilla</td>
                   <td>{{totalSencillas}}</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{"US"}}&#36;{{costoUSDSencilla}}</td>
+                  <td>{{"MXN"}}&#36;{{costoMxNSencilla}}</td>
                 </tr>
                 <tr>
                   <td>Doble</td>
                   <td>{{totalDobles}}</td>
+                  <td>{{"US"}}&#36;{{costoUSDDoble}}</td>
+                  <td>{{"MXN"}}&#36;{{costoMxNDoble}}</td>
+                </tr>
+                <tr>
+                  <td>Triple</td>
+                  <td>{{totalTriples}}</td>
+                  <td>{{"US"}}&#36;{{costoUSDTriple}}</td>
+                  <td>{{"MXN"}}&#36;{{costoMxNTriple}}</td>
+                </tr>
+                <tr>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>Triple</td>
-                  <td>{{totalTriples}}</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><strong>Total</strong></td>
+                  <td>{{totalPagarUSD}}</td>
+                  <td>{{totalPagarMXN}}</td>
                 </tr>
               </tbody>
             </table>
+
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-2 col-xs-6">
+                <button class="btn btn-primary btn-sm" type="button">Limpiar</button>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <button class="btn btn-primary btn-sm" type="button">Pagar</button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

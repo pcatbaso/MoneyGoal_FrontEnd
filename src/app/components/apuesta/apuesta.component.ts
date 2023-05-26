@@ -26,6 +26,16 @@ export class ApuestaComponent {
   totalTriples: any;
   totalSencillas: any;
 
+  costoMxNSencilla: any;
+  costoMxNDoble: any;
+  costoMxNTriple: any;
+  costoUSDSencilla: any;
+  costoUSDDoble: any;
+  costoUSDTriple: any;
+
+  totalPagarMXN: any;
+  totalPagarUSD: any;
+
   constructor(
     private _ticketService: TicketService,
     private modalService: NgbModal
@@ -67,14 +77,24 @@ export class ApuestaComponent {
     var quinielaTriple = 0;
     var quinielaSencilla = 0;
 
-    for(var i = 0; i < this.tableGen.length; i++){
+    this.totalPagarMXN = 0;
 
+    this.costoMxNSencilla = 0;
+    this.costoMxNDoble = 0;
+    this.costoMxNTriple = 0;
+
+    this.totalPagarUSD = 0;
+    this.costoUSDSencilla = 0;
+    this.costoUSDDoble = 0;
+    this.costoUSDTriple = 0;
+
+    for(var i = 0; i < this.tableGen.length; i++){
       var arrayTrue = 0;
       var arrayFalse = 0;
 
       this.inputTable = (<HTMLScriptElement[]><any>this.tableGen[i].getElementsByTagName("input"))
-      for(var j = 0; j < this.inputTable.length; j++){
 
+      for(var j = 0; j < this.inputTable.length; j++){
         if(this.inputTable[j].checked)
           arrayTrue = arrayTrue + 1;
         else
@@ -84,31 +104,40 @@ export class ApuestaComponent {
       if(arrayTrue == 1 && arrayFalse == 2){
         quinielaSencilla = quinielaSencilla + 1;
         this.totalSencillas = quinielaSencilla;
+        this.costoMxNSencilla = this.totalSencillas * 2 * 20;
+        this.costoUSDSencilla = this.totalSencillas * 2;
       }
-      else{
-        if(arrayTrue == 3){
-          if(quinielaTriple == 2){
-            console.log("limite de quinielas triples")
-           // event.target.checked = false;
-          }
-          else{
-            quinielaTriple = quinielaTriple + 1;
-            this.totalTriples = quinielaTriple;
-          }
+      else if(arrayTrue == 2 && arrayFalse == 1){
+        if(quinielaDoble == 4){
+          console.log("limite de quinielas doble")
+         // event.target.checked = false;
         }
-
-        if(arrayTrue == 2){
-          if(quinielaDoble == 4){
-            console.log("limite de quinielas dobles")
-            //event.target.checked = false;
-          }
-          else{
-            quinielaDoble = quinielaDoble + 1;
-            this.totalDobles = quinielaDoble;
-          }
+        else{
+          quinielaDoble = quinielaDoble + 1;
+          this.totalDobles = quinielaDoble;
+          this.costoMxNDoble = this.totalDobles * 4 * 20;
+          this.costoUSDDoble = this.totalDobles * 4;
         }
       }
+      else if(arrayTrue == 3 && arrayFalse == 0){
+        if(quinielaTriple == 2){
+          console.log("limite de quinielas triples")
+         // event.target.checked = false;
+        }
+        else{
+          quinielaTriple = quinielaTriple + 1;
+          this.totalTriples = quinielaTriple;
+          this.costoMxNTriple = this.totalTriples * 6 * 20;
+          this.costoUSDTriple = this.totalTriples * 6 ;
+        }
+      }
 
+
+      if(quinielaDoble <= 4 && quinielaTriple <= 3){
+        this.totalPagarMXN = this.costoMxNSencilla + this.costoMxNDoble + this.costoMxNTriple;
+        this.totalPagarUSD = this.costoUSDSencilla + this.costoUSDDoble + this.costoUSDTriple;
+      }
     }
   }
+
 }
