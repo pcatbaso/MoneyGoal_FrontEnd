@@ -18,7 +18,7 @@ export class UsuarioService {
   }
 
   login_get(usuario: any): Observable<any>{
-    return this.http.get(this.endPoint + "consultarUsuario" + `?email=${usuario.email_usuario}&contrasenia=${usuario.contrasenia_usuario}`)
+    return this.http.get(this.apiUrl + "autentificacion" + `?email=${usuario.email_usuario}&password=${usuario.contrasenia_usuario}`)
   }
 
   ValidarExistenciaCorreo(correo: string, password: string, validar: boolean): Observable<any>{

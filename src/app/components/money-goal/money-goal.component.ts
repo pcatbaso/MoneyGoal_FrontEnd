@@ -1,7 +1,7 @@
 import { Component  } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl } from '@angular/forms';
 // import { NgxToastService } from 'ngx-toast-notifier';
-// import { UsuarioService } from 'src/app/services/usuario.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 //import { UsuarioI } from 'src/app/interfaces/usuario.interface';
 
@@ -17,6 +17,8 @@ export class MoneyGoalComponent {
   registrarTerminos = false;
   checkedTermino1 = true;
   checkedTermino2 = true;
+
+  invalidLogin = false;
 
   loginForm = new FormGroup({
     email_usuario: new FormControl(''),
@@ -43,7 +45,7 @@ export class MoneyGoalComponent {
   constructor (
     private formBuilder: FormBuilder,
    // public notiSvc: NgxToastService,
-   // private _usuarioServicio: UsuarioService,
+    private _usuarioServicio: UsuarioService,
     private router: Router,
     private route: ActivatedRoute
   )
@@ -99,21 +101,30 @@ export class MoneyGoalComponent {
     //  this.notiSvc.onDanger('Error', 'Ingrese una contraseña válida')
     }
     else {
-      // this._usuarioServicio.login_get(usuario)
-      // .subscribe({
-      //   next: resp => {
-      //     console.log("se encuentra registrado");
-      //     if(resp.length > 0){
-      //       this.router.navigate(['/Inicio'], { relativeTo: this.route });
-      //     }
-      //     else{
-      //       this.notiSvc.onWarning('Advertencia', 'El usuario no se encuentra registrado')
-      //     }
-      //   },
-      //   error: err => {
-      //     this.notiSvc.onWarning('Advertencia', "oh oh ¡Ocurrio un error!");
-      //   }
-      // });
+      // const credenciales = {
+      //   'email': usuario.email_usuario,
+      //   'password': usuario.contrasenia_usuario
+      // }
+      this._usuarioServicio.login_get(usuario)
+      .subscribe({
+        next: resp => {
+          const token = (<any>resp).token;
+          localStorage.setItem("jwt", token);
+          this.invalidLogin = false;
+          this.router.navigate(['/Apuesta'], { relativeTo: this.route });
+          // console.log("se encuentra registrado");
+          // if(resp.length > 0){
+          //   this.router.navigate(['/Inicio'], { relativeTo: this.route });
+          // }
+          // else{
+          //   //this.notiSvc.onWarning('Advertencia', 'El usuario no se encuentra registrado')
+          // }
+        },
+        error: err => {
+          this.invalidLogin = false;
+          //this.notiSvc.onWarning('Advertencia', "oh oh ¡Ocurrio un error!");
+        }
+      });
     }
 
     console.log(usuario)
