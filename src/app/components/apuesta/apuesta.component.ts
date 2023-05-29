@@ -43,6 +43,7 @@ export class ApuestaComponent {
 
   ngOnInit(){
     this.ticketDisponibles(0);
+    this.resetearTabla();
   }
 
   ticketDisponibles(idTicket: number){
@@ -61,6 +62,7 @@ export class ApuestaComponent {
   }
 
   seleccionarTicket(content: any, event: any){
+    this.resetearTabla();
     this.ticketSelect = [];
     this.modalService.open(content, { size: 'lg', backdrop: 'static', centered: true });
     console.log("event",event)
@@ -140,4 +142,35 @@ export class ApuestaComponent {
     }
   }
 
+  limpiarTodo(){
+    this.tableGen = (<HTMLScriptElement[]><any>document.getElementById("tableSeleccionada")?.getElementsByTagName("tbody")[0].rows);
+
+    for(var i = 0; i < this.tableGen.length; i++){
+      this.inputTable = (<HTMLScriptElement[]><any>this.tableGen[i].getElementsByTagName("input"))
+
+      for(var j = 0; j < this.inputTable.length; j++){
+        //event.target.checked = false;
+        this.inputTable[j].checked = false;
+      }
+    }
+
+    this.resetearTabla();
+  }
+
+  resetearTabla(){
+    this.totalSencillas = 0;
+    this.costoUSDSencilla = 0;
+    this.costoMxNSencilla = 0;
+
+    this.totalDobles = 0;
+    this.costoUSDDoble = 0;
+    this.costoMxNDoble = 0;
+
+    this.totalTriples = 0;
+    this.costoUSDTriple = 0;
+    this.costoMxNTriple = 0;
+
+    this.totalPagarUSD = 0;
+    this.totalPagarMXN = 0;
+  }
 }
