@@ -179,8 +179,9 @@ export class ApuestaComponent {
   }
 
   registrarApuesta(){
-    // this.listaApuesta.idUser = 2;
-    // this.listaApuesta.idTicketBet = 3;
+    this.listaApuesta.idUser = 2;
+    this.listaApuesta.idTicketBet = 3;
+    this.listaApuesta.listTicketDetail = [];
 
     this.tableGen = (<HTMLScriptElement[]><any>document.getElementById("tableSeleccionada")?.getElementsByTagName("tbody")[0].rows);
 
@@ -188,12 +189,24 @@ export class ApuestaComponent {
 
     console.log("this.ticketSelect1", this.ticketSelect);
 
+
     for(var i = 0; i < this.tableGen.length; i++){
       this.inputTable = (<HTMLScriptElement[]><any>this.tableGen[i].getElementsByTagName("input"))
 
+      this.listaDetailAPuesta.idTicketBet = 2;
+      this.listaDetailAPuesta.numGame = i+1;
+      this.listaDetailAPuesta = { } as ticketDetailI;
       for(var j = 0; j < this.inputTable.length; j++){
-        console.log("inputTable" + j, this.inputTable[j])
+        console.log("inputTable" + j, this.inputTable[j].checked)
+        if(j == 0)
+          this.listaDetailAPuesta.localApuesta  = this.inputTable[j].checked;
+        else if(j == 1)
+          this.listaDetailAPuesta.drawApuesta  = this.inputTable[j].checked;
+        else if(j == 2)
+          this.listaDetailAPuesta.visitApuesta = this.inputTable[j].checked;
       }
+
+      this.listaApuesta.listTicketDetail.push(this.listaDetailAPuesta);
 
 
 
@@ -220,6 +233,8 @@ export class ApuestaComponent {
       // this.listaDetailAPuesta.costo = 9;
 
     }
+
+    console.log("this.listaDetailAPuesta", this.listaApuesta)
   }
 }
 
