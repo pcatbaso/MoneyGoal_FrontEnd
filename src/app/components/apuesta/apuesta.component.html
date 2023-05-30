@@ -38,7 +38,6 @@
   </div>
 </div>
 
-
 <ng-template #TicketSelect let-modal >
 	<div class="modal-content"  style="border-radius: 0px; border-right: none; border-top:none; border-bottom:none">
     <div class="modal-header">
@@ -147,7 +146,7 @@
                 <button class="btn btn-primary btn-sm" (click)="limpiarTodo()" type="button">Limpiar</button>
               </div>
               <div class="col-md-2 col-xs-6">
-                <button class="btn btn-success btn-sm" type="button">Pagar</button>
+                <button class="btn btn-success btn-sm" (click)="registrarApuesta()" type="button">Pagar</button>
               </div>
             </div>
 

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { timer } from 'rxjs';
 import { TicketService } from 'src/app/services/ticket.service';
 import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ticketI } from 'src/app/interfaces/ticket.interface';
+import { ticketDetailI } from 'src/app/interfaces/ticketDetail.interface';
 
 @Component({
   selector: 'app-apuesta',
@@ -12,6 +14,8 @@ import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-boots
 export class ApuestaComponent {
 
   listaTickets: any;
+  listaApuesta = { } as ticketI;
+  listaDetailAPuesta = { } as ticketDetailI;
   listaDiv: any;
   local = "local_";
   empate = "empate_";
@@ -173,4 +177,49 @@ export class ApuestaComponent {
     this.totalPagarUSD = 0;
     this.totalPagarMXN = 0;
   }
+
+  registrarApuesta(){
+    // this.listaApuesta.idUser = 2;
+    // this.listaApuesta.idTicketBet = 3;
+
+    this.tableGen = (<HTMLScriptElement[]><any>document.getElementById("tableSeleccionada")?.getElementsByTagName("tbody")[0].rows);
+
+   // this.ticketSelect.idUser = 3;
+
+    console.log("this.ticketSelect1", this.ticketSelect);
+
+    for(var i = 0; i < this.tableGen.length; i++){
+      this.inputTable = (<HTMLScriptElement[]><any>this.tableGen[i].getElementsByTagName("input"))
+
+      for(var j = 0; j < this.inputTable.length; j++){
+        console.log("inputTable" + j, this.inputTable[j])
+      }
+
+
+
+
+    //   var inputLocal = (<HTMLScriptElement[]><any>this.inputTable[j].getElementsByClassName("check-local"))
+    //   var inputEmpate = (<HTMLScriptElement[]><any>this.inputTable[j].getElementsByClassName("check-empate"))
+    //   var inputVisita = (<HTMLScriptElement[]><any>this.inputTable[j].getElementsByClassName("check-visita"))
+    //   console.log("inputLocal", inputLocal)
+    // console.log("inputEmpate", inputEmpate)
+    // console.log("inputVisita", inputVisita)
+
+      // this.listaDetailAPuesta.idTicketBet = 2;
+      // this.listaDetailAPuesta.numGame = i;
+      // this.listaDetailAPuesta.localApuesta = (Boolean)(<HTMLScriptElement[]><any>inputLocal[0]?.getElementsByTagName("input")[0].checked);
+      // this.listaDetailAPuesta.drawApuesta = (Boolean)(<HTMLScriptElement[]><any>inputEmpate[0]?.getElementsByTagName("input")[0].checked);
+      // this.listaDetailAPuesta.visitApuesta = (Boolean)(<HTMLScriptElement[]><any>inputVisita[0]?.getElementsByTagName("input")[0].checked);
+
+
+      // console.log("localApuesta", this.listaDetailAPuesta.localApuesta)
+      // console.log("inputEmpate", this.listaDetailAPuesta.drawApuesta)
+      // console.log("inputVisita", this.listaDetailAPuesta.visitApuesta)
+      //
+      // this.listaDetailAPuesta.drawApuesta = false;
+      // this.listaDetailAPuesta.costo = 9;
+
+    }
+  }
 }
+

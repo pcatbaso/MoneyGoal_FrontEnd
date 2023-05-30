@@ -1,10 +1,14 @@
 export interface ticketDetailI{
   idTicketBet: number;
   numGame: number;
-  idLocalTeam: number;
+  idLocalTeam?: number;
   nameLocal?: string;
-  idVisitingTeam: number;
+  idVisitingTeam?: number;
   nameVisitante?: string;
   startDate: string;
   result: string;
+  localApuesta?: boolean;
+  drawApuesta?: boolean;
+  visitApuesta?: boolean;
+  costo?: number;
 }
