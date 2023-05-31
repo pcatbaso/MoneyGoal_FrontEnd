@@ -179,8 +179,9 @@ export class ApuestaComponent {
   }
 
   registrarApuesta(){
+    var costo = 0;
     this.listaApuesta.idUser = 2;
-    this.listaApuesta.idTicketBet = 3;
+    this.listaApuesta.idTicketBet = this.ticketSelect.idTicketBet;
     this.listaApuesta.listTicketDetail = [];
 
     this.tableGen = (<HTMLScriptElement[]><any>document.getElementById("tableSeleccionada")?.getElementsByTagName("tbody")[0].rows);
@@ -189,49 +190,38 @@ export class ApuestaComponent {
 
     console.log("this.ticketSelect1", this.ticketSelect);
 
-
     for(var i = 0; i < this.tableGen.length; i++){
+      this.listaDetailAPuesta = { } as ticketDetailI;
+      costo = 0;
       this.inputTable = (<HTMLScriptElement[]><any>this.tableGen[i].getElementsByTagName("input"))
 
-      this.listaDetailAPuesta.idTicketBet = 2;
+      this.listaDetailAPuesta.idTicketBet = this.ticketSelect.idTicketBet;
       this.listaDetailAPuesta.numGame = i+1;
-      this.listaDetailAPuesta = { } as ticketDetailI;
+
       for(var j = 0; j < this.inputTable.length; j++){
         console.log("inputTable" + j, this.inputTable[j].checked)
-        if(j == 0)
+        if(j == 0){
           this.listaDetailAPuesta.localApuesta  = this.inputTable[j].checked;
-        else if(j == 1)
+
+          if(this.listaDetailAPuesta.localApuesta)
+            costo = costo + 2;
+        }
+        else if(j == 1){
           this.listaDetailAPuesta.drawApuesta  = this.inputTable[j].checked;
-        else if(j == 2)
+
+          if(this.listaDetailAPuesta.drawApuesta)
+            costo = costo + 4;
+        }
+        else if(j == 2){
           this.listaDetailAPuesta.visitApuesta = this.inputTable[j].checked;
+
+          if(this.listaDetailAPuesta.visitApuesta)
+            costo = costo + 6;
+        }
       }
 
+      this.listaDetailAPuesta.costo = costo;
       this.listaApuesta.listTicketDetail.push(this.listaDetailAPuesta);
-
-
-
-
-    //   var inputLocal = (<HTMLScriptElement[]><any>this.inputTable[j].getElementsByClassName("check-local"))
-    //   var inputEmpate = (<HTMLScriptElement[]><any>this.inputTable[j].getElementsByClassName("check-empate"))
-    //   var inputVisita = (<HTMLScriptElement[]><any>this.inputTable[j].getElementsByClassName("check-visita"))
-    //   console.log("inputLocal", inputLocal)
-    // console.log("inputEmpate", inputEmpate)
-    // console.log("inputVisita", inputVisita)
-
-      // this.listaDetailAPuesta.idTicketBet = 2;
-      // this.listaDetailAPuesta.numGame = i;
-      // this.listaDetailAPuesta.localApuesta = (Boolean)(<HTMLScriptElement[]><any>inputLocal[0]?.getElementsByTagName("input")[0].checked);
-      // this.listaDetailAPuesta.drawApuesta = (Boolean)(<HTMLScriptElement[]><any>inputEmpate[0]?.getElementsByTagName("input")[0].checked);
-      // this.listaDetailAPuesta.visitApuesta = (Boolean)(<HTMLScriptElement[]><any>inputVisita[0]?.getElementsByTagName("input")[0].checked);
-
-
-      // console.log("localApuesta", this.listaDetailAPuesta.localApuesta)
-      // console.log("inputEmpate", this.listaDetailAPuesta.drawApuesta)
-      // console.log("inputVisita", this.listaDetailAPuesta.visitApuesta)
-      //
-      // this.listaDetailAPuesta.drawApuesta = false;
-      // this.listaDetailAPuesta.costo = 9;
-
     }
 
     console.log("this.listaDetailAPuesta", this.listaApuesta)
