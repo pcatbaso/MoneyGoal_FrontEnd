@@ -11,4 +11,6 @@ export interface ticketDetailI{
   drawApuesta?: boolean;
   visitApuesta?: boolean;
   costo?: number;
+  createdDate?: string;
+  updateDate?: string;
 }

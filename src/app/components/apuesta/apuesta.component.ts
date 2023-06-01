@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { timer } from 'rxjs';
 import { TicketService } from 'src/app/services/ticket.service';
+import { ApuestaService } from 'src/app/services/apuesta.service';
 import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ticketI } from 'src/app/interfaces/ticket.interface';
 import { ticketDetailI } from 'src/app/interfaces/ticketDetail.interface';
@@ -41,6 +42,7 @@ export class ApuestaComponent {
   totalPagarUSD: any;
 
   constructor(
+    private _apuestaService: ApuestaService,
     private _ticketService: TicketService,
     private modalService: NgbModal
   ){}
@@ -210,13 +212,13 @@ export class ApuestaComponent {
           this.listaDetailAPuesta.drawApuesta  = this.inputTable[j].checked;
 
           if(this.listaDetailAPuesta.drawApuesta)
-            costo = costo + 4;
+            costo = costo + 2;
         }
         else if(j == 2){
           this.listaDetailAPuesta.visitApuesta = this.inputTable[j].checked;
 
           if(this.listaDetailAPuesta.visitApuesta)
-            costo = costo + 6;
+            costo = costo + 2;
         }
       }
 
@@ -225,6 +227,19 @@ export class ApuestaComponent {
     }
 
     console.log("this.listaDetailAPuesta", this.listaApuesta)
+    var obj = JSON.stringify(this.listaApuesta);
+    console.log("json", obj)
+
+    this._apuestaService.addApuesta(this.listaApuesta)
+      .subscribe({
+        next: resp => {
+          if(resp[0] === "OK"){
+            window.location.reload();
+          }
+        },
+        error: err => {
+          console.log(err.message)
+        }
+      });
   }
 }
-
